@@ -27,7 +27,9 @@ LDFLAGS		=       -L./lib/ -l$(LIBS) -lcriterion
 
 TEMP_PATH	=	./$(TESTS_NAME)-test_
 TEMP_SRC	=	$(addprefix $(TEMP_PATH), $(SRC))
-TEMP_FILES	=	$(TEMP_SRC:.c=.gcda)	\
+TEMP_FILES	=	$(TESTS_SRC:.c=.c~)	\
+			$(OBJ:.o=.c~)     	\
+			$(TEMP_SRC:.c=.gcda)	\
 			$(TEMP_SRC:.c=.gcno)	\
 			$(OBJ:.o=.gcda)		\
 			$(OBJ:.o=.gcno)		\
