@@ -25,6 +25,9 @@ TESTS_SRC	=	$(addprefix $(TESTS_PATH), $(SRC))
 CFLAGS		=       -g --coverage -I./include/
 LDFLAGS		=       -L./lib/ -l$(LIBS) -lcriterion
 
+CODING_STYLE	=	coding-style
+CODING_REPORTS	=	coding-style-reports.log
+
 TEMP_PATH	=	./$(TESTS_NAME)-test_
 TEMP_SRC	=	$(addprefix $(TEMP_PATH), $(SRC))
 TEMP_FILES	=	$(TESTS_SRC:.c=.c~)	\
@@ -33,6 +36,7 @@ TEMP_FILES	=	$(TESTS_SRC:.c=.c~)	\
 			$(TEMP_SRC:.c=.gcno)	\
 			$(OBJ:.o=.gcda)		\
 			$(OBJ:.o=.gcno)		\
+			$(CODING_REPORTS)	\
 			$(TESTS_NAME)		\
 			$(OBJ)
 
@@ -57,6 +61,10 @@ $(TESTS_NAME):	$(NAME) $(OBJ)
 	gcc $(CFLAGS) -o $@ $(TESTS_SRC) $(LDFLAGS)
 	./$@
 	gcovr --exclude tests/ --branches
+
+$(CODING_STYLE):
+	$@ . .
+	cat $(CODING_REPORTS)
 
 clean:		$(OBJ)
 	rm -f $(TEMP_FILES)
