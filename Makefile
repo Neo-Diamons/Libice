@@ -9,7 +9,8 @@ FILE_PATH	=	./lib/ice/
 SRC		=	ice_putchar.c		\
 			ice_putstr.c		\
 			ice_sint.c		\
-			ice_strlen.c
+			ice_strlen.c		\
+			ice_getnbr.c
 
 OBJ		=	$(patsubst %.c, $(FILE_PATH)%.o, $(SRC))
 
