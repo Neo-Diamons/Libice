@@ -13,5 +13,5 @@ Test(ice_getnbr, getnbr_maxlong)
 
 Test(ice_getnbr, getnbr)
 {
-    cr_assert_eq(ice_getnbr("42"), 42);
+    cr_assert_eq(ice_getnbr("42a"), 42);
 }
