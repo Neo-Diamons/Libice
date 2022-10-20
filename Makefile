@@ -24,6 +24,15 @@ TESTS_SRC	=	$(addprefix $(TESTS_PATH), $(SRC))
 CFLAGS		=       -g --coverage -I./include/
 LDFLAGS		=       -L./lib/ -l$(LIBS) -lcriterion
 
+TEMP_PATH	=	./$(TESTS_NAME)-test_
+TEMP_SRC	=	$(addprefix $(TEMP_PATH), $(SRC))
+TEMP_FILES	=	$(TEMP_SRC:.c=.gcda)	\
+			$(TEMP_SRC:.c=.gcno)	\
+			$(OBJ:.o=.gcda)		\
+			$(OBJ:.o=.gcno)		\
+			$(TESTS_NAME)		\
+			$(OBJ)
+
 all:		$(NAME)
 	@echo -e "\033[96m"
 	@echo "#####################################################"
@@ -47,10 +56,10 @@ $(TESTS_NAME):	$(NAME) $(OBJ)
 	gcovr --exclude tests/ --branches
 
 clean:		$(OBJ)
-	rm -f $(OBJ)
+	rm -f $(TEMP_FILES)
 
 fclean: 	clean
-	rm -f $(NAME)
+	rm -f ./lib/$(NAME)
 
 re:		fclean all
 
