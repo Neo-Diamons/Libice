@@ -5,13 +5,14 @@
 ** ice_putstr
 */
 
-#include "ice.h"
+#include <unistd.h>
+
+int ice_strlen(char *str);
 
 void ice_putstr(char *str)
 {
-    int i = 0;
+    int len = 0;
 
-    for (; str[i] != 0 ; i++) {
-        ice_putchar(str[i]);
-    }
+    len = ice_strlen(str);
+    write(1, str, len);
 }

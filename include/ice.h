@@ -10,5 +10,7 @@
 
 void ice_putchar(char c);
 void ice_putstr(char *str);
+char *ice_sint(int nb);
+int ice_strlen(char *str);
 
 #endif /* !ICE_H */
