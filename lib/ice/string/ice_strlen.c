@@ -1,16 +1,15 @@
 /*
 ** EPITECH PROJECT, 2022
-** ice_strlen
+** libice
 ** File description:
-** ice strlen
+** ice_strlen.c
 */
 
-int ice_strlen(char *str)
+int ice_strlen(const char *str)
 {
     int i = 0;
 
-    for (; str[i] ; i++) {
-    }
+    for (; str[i] ; i++);
 
     return i;
 }
