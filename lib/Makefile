@@ -6,12 +6,12 @@
 ##
 
 all:
-	make -s -C ./lib/ice/
-	make -s -C ./lib/list/
+	make -C ./ice/
+	make -C ./list/
 
 clean:
-	make -s fclean -C ./lib/ice/
-	make -s fclean -C ./lib/list/
+	make fclean -C ./ice/
+	make fclean -C ./list/
 
 fclean:		clean
 

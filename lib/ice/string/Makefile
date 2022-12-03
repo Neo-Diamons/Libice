@@ -19,7 +19,7 @@ CFLAGS	=	-I./../../../include/ -Wall -Wextra
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-	ar rc ./../../../libice.a $(OBJ)
+	ar rc ./../../libice.a $(OBJ)
 
 clean:
 	rm -f $(OBJ)
