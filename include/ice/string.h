@@ -19,7 +19,7 @@
      * @brief Compare two str.
      * @param str1 that will be compared.
      * @param str2 that will be compared.
-     * @return 0 if the str are equals, 1 if not.
+     * @return 0 if the str are equals, ascii difference if not.
      */
     int ice_strcmp(const char *str1, const char *str2);
 
