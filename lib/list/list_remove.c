@@ -27,7 +27,7 @@ void *list_remove(list_t *list, unsigned int index)
 
     if ((list->size <= index) || (list == NULL))
         return NULL;
-    
+
     node = list->head;
     for (unsigned int i = 0; i < index; i++)
         node = node->next;
