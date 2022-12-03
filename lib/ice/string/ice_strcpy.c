@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** libice
+** libice/string
 ** File description:
 ** ice_strcpy.c
 */

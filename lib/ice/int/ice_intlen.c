@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** libice
+** libice/int
 ** File description:
 ** ice_intlen.c
 */

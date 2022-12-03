@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2022
-## libice
+## libice/output
 ## File description:
 ## Makefile
 ##
