@@ -8,7 +8,6 @@
 #ifndef ICE_INT_H
     #define ICE_INT_H
 
-
     /**
      * @brief #include "ice/int.h"
      * @param nb that will be printed.
