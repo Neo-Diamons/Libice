@@ -30,11 +30,15 @@ SRC_STR		:=	ice_strcat.c	\
 OBJ_STR		:=	$(patsubst %.c, $(DIR_STR)%.o, $(SRC_STR))
 
 DIR_LIST	:=	./list/
-SRC_LIST	:=	list_add.c		\
-				list_create.c	\
-				list_destroy.c	\
-				list_get.c		\
-				list_remove.c	\
+SRC_LIST	:=	list_add_node.c		\
+				list_add.c			\
+				list_create.c		\
+				list_destroy.c		\
+				list_get.c			\
+				list_pop.c			\
+				list_pop_node.c		\
+				list_remove.c		\
+				list_remove_node.c	\
 				list_sort.c
 OBJ_LIST	:=	$(patsubst %.c, $(DIR_LIST)%.o, $(SRC_LIST))
 

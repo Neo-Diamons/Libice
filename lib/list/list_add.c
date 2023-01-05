@@ -5,12 +5,10 @@
 ** list_add.c
 */
 
-#include "stdlib.h"
+#include <stdlib.h>
 #include "list.h"
 
-
-
-static unsigned int list_add_node(list_t *list, list_node_t *node)
+static unsigned int add_node(list_t *list, list_node_t *node)
 {
     list->size++;
     if (list->tail == NULL) {
@@ -37,5 +35,5 @@ unsigned int list_add(list_t *list, void *value)
     node->next = NULL;
     node->prev = NULL;
 
-    return list_add_node(list, node);
+    return add_node(list, node);
 }
