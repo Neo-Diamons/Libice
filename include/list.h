@@ -20,6 +20,6 @@
 
     void list_destroy(list_t *list);
 
-    void list_sort(list_t *list, int (*sort)());
+    void list_sort(list_t *list, int (*cmp)(void *, void *));
 
 #endif /* !LIST_H */
