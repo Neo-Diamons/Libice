@@ -6,30 +6,31 @@
 */
 
 #include <stdlib.h>
+#include <stdbool.h>
 #include "list.h"
 
-static unsigned int add_node(list_t *list, list_node_t *node)
+static bool add_node(list_t *list, list_node_t *node)
 {
     list->size++;
     if (list->tail == NULL) {
         list->head = node;
         list->tail = node;
-        return 0;
+        return 1;
     }
 
     list->tail->next = node;
     node->prev = list->tail;
     list->tail = node;
 
-    return list->size - 1;
+    return 0;
 }
 
-unsigned int list_add(list_t *list, void *value)
+bool list_add(list_t *list, void *value)
 {
     list_node_t *node = malloc(sizeof(list_node_t));
 
     if ((list == NULL) || (value == NULL) || (node == NULL))
-        return 0;
+        return 1;
 
     node->value = value;
     node->next = NULL;

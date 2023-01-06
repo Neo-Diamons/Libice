@@ -8,6 +8,7 @@
 #ifndef LIST_H
     #define LIST_H
 
+    #include <stdbool.h>
     #include "list/struct.h"
 
     /**
@@ -38,7 +39,7 @@
      * @param value The value to add
      * @return unsigned int The size of the list
     */
-    unsigned int list_add(list_t *list, void *value);
+    bool list_add(list_t *list, void *value);
 
     /**
      * @brief Add a node at the end of list
