@@ -25,6 +25,14 @@
     void list_destroy(list_t *list);
 
     /**
+     * @brief Destroy the list and the node value
+     * @param list The list
+     * @param destroy_node The function to destroy the node
+     * @return void
+    */
+    void list_destroy_node(list_t *list, void(*destroy_node)(void *));
+
+    /**
      * @brief Add a value at the end of list
      * @param list The list
      * @param value The value to add

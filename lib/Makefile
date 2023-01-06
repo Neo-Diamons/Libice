@@ -34,6 +34,7 @@ SRC_LIST	:=	list_add_node.c		\
 				list_add.c			\
 				list_create.c		\
 				list_destroy.c		\
+				list_destroy_node.c	\
 				list_get.c			\
 				list_pop.c			\
 				list_pop_node.c		\
