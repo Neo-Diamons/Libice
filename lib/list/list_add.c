@@ -15,7 +15,7 @@ static bool add_node(list_t *list, list_node_t *node)
     if (list->tail == NULL) {
         list->head = node;
         list->tail = node;
-        return 1;
+        return 0;
     }
 
     list->tail->next = node;
