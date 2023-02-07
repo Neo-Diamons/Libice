@@ -1,6 +1,7 @@
 # Folder
 .vscode
 .idea
+.obj
 
 # Extension
 *.o

@@ -7,30 +7,37 @@
 
 NAME		:=	libice.a
 
+DIR			:=	./
+SRC			:=
+
 DIR_ICE		:=	./ice/
 
-DIR_INT		:=	$(addprefix $(DIR_ICE), ./int/)
-SRC_INT		:=	ice_atoi.c		\
+DIR			+=	$(addprefix $(DIR_ICE), ./int/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_atoi.c		\
 				ice_itoa.c		\
-				ice_intlen.c
-OBJ_INT		:=	$(patsubst %.c, $(DIR_INT)%.o, $(SRC_INT))
+				ice_intlen.c	\
+				)
 
-DIR_OUT		:=	$(addprefix $(DIR_ICE), ./output/)
-SRC_OUT		:=	ice_perror.c	\
-				ice_puts.c
-OBJ_OUT		:=	$(patsubst %.c, $(DIR_OUT)%.o, $(SRC_OUT))
+DIR			+=	$(addprefix $(DIR_ICE), ./output/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_perror.c	\
+				ice_puts.c		\
+				)
 
-DIR_STR		:=	$(addprefix $(DIR_ICE), ./string/)
-SRC_STR		:=	ice_strcat.c	\
+DIR			+=	$(addprefix $(DIR_ICE), ./string/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_strcat.c	\
 				ice_strcmp.c	\
 				ice_strcpy.c	\
 				ice_strlen.c	\
 				ice_strncat.c	\
-				ice_strncpy.c
-OBJ_STR		:=	$(patsubst %.c, $(DIR_STR)%.o, $(SRC_STR))
+				ice_strncpy.c	\
+				)
 
-DIR_LIST	:=	./list/
-SRC_LIST	:=	list_add_node.c		\
+DIR			+=	./list/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				list_add_node.c		\
 				list_add.c			\
 				list_create.c		\
 				list_destroy.c		\
@@ -40,31 +47,47 @@ SRC_LIST	:=	list_add_node.c		\
 				list_pop_node.c		\
 				list_remove.c		\
 				list_remove_node.c	\
-				list_sort.c
-OBJ_LIST	:=	$(patsubst %.c, $(DIR_LIST)%.o, $(SRC_LIST))
+				list_sort.c			\
+				)
 
-OBJS		:=	$(OBJ_INT) $(OBJ_OUT) $(OBJ_STR) $(OBJ_LIST)
+ROOT_OBJ	:=	./.obj/
+DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
+OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
-RM			:=	rm -f
+TOTAL_SRC	:=	$(words $(OBJ))
+TOTAL_OBJ	:=	0
+
+RM			:=	rm -rf
 
 CC			:=	gcc
 CLINKER		:=	ar rc
 CFLAGS		:=	-I./../include/ -Wall -Wextra
 
-all:		$(NAME)
+all:				$(DIR_OBJ) $(NAME)
 
-$(NAME):	$(OBJS)
-	$(CLINKER) $(NAME) $(OBJS)
+$(DIR_OBJ):
+	@echo 'Creating directory: $(ROOT_OBJ)'
+	mkdir -p $(DIR_OBJ)
 
-debug:		CFLAGS += -g
-debug:		re
+$(ROOT_OBJ)%.o:		%.c
+	$(eval TOTAL_OBJ=$(shell echo $$(($(TOTAL_OBJ)+1))))
+	@./progress_bar.sh $(TOTAL_OBJ) $(TOTAL_SRC)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME):			$(OBJ)
+	@echo -e '\nBuilding target: $@'
+	$(CLINKER) $(NAME) $(OBJ)
+	@echo -e 'SRC files compiled: $(TOTAL_OBJ)'
+
+debug:				CFLAGS += -g
+debug:				re
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(ROOT_OBJ)
 
-fclean:		clean
+fclean:				clean
 	$(RM) $(NAME)
 
-re:			fclean all
+re:					fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:				all clean fclean re
