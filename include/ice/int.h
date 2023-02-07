@@ -8,27 +8,27 @@
 #ifndef ICE_INT_H
     #define ICE_INT_H
 
-    /**
-     * @brief #include "ice/int.h"
-     * @param nb that will be printed.
-     * @param base that will be printed.
-     * @return Len of the int.
-     */
-    int ice_intlen(long long nb);
+/**
+ * @brief #include "ice/int.h"
+ * @param nb that will be printed.
+ * @param base that will be printed.
+ * @return Len of the int.
+ */
+int ice_intlen(long long nb);
 
-    /**
-     * @brief #include "ice/int.h"
-     * @param nb that will be printed.
-     * @param buffer int will be add.
-     * @return Nothing.
-     */
-    void ice_itoa(long long nb, char *buffer);
+/**
+ * @brief #include "ice/int.h"
+ * @param nb that will be printed.
+ * @param buffer int will be add.
+ * @return Nothing.
+ */
+void ice_itoa(long long nb, char *buffer);
 
-    /**
-     * @brief #include "ice/int.h"
-     * @param str that will be analysed.
-     * @return The int extract from the str.
-     */
-    long long ice_atoi(const char *str);
+/**
+ * @brief #include "ice/int.h"
+ * @param str that will be analysed.
+ * @return The int extract from the str.
+ */
+long long ice_atoi(const char *str);
 
 #endif /* !ICE_INT_H */
