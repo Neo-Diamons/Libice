@@ -52,7 +52,8 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR_TEST	:=	../tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
-				test_list.c		\
+				test_int.c			\
+				test_list.c			\
 				)
 
 ROOT_OBJ	:=	./.obj/
