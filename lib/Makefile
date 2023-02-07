@@ -87,7 +87,7 @@ $(NAME):			$(OBJ)
 	@echo -e 'SRC files compiled: $(TOTAL_OBJ)'
 
 $(UNIT_TEST):		CFLAGS += -lcriterion --coverage
-$(UNIT_TEST):
+$(UNIT_TEST):		fclean
 	@echo -e '\nBuilding target: $@'
 	$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $(UNIT_TEST)
 	@echo -e 'SRC files compiled: $(TOTAL_SRC)'

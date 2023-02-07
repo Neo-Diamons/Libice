@@ -21,7 +21,6 @@ list_t *list_create(void);
 /**
  * @brief Get the size of the list
  * @param list The list
- * @return unsigned int The size of the list
 */
 void list_destroy(list_t *list);
 
@@ -29,7 +28,6 @@ void list_destroy(list_t *list);
  * @brief Destroy the list and the node value
  * @param list The list
  * @param destroy_node The function to destroy the node
- * @return void
 */
 void list_destroy_node(list_t *list, void(*destroy_node)(void *));
 
@@ -93,7 +91,6 @@ list_node_t *list_pop_node(list_t *list, list_node_t *node);
  * @brief Sort the list
  * @param list The list
  * @param cmp The compare function
- * @return void
 */
 void list_sort(list_t *list, int (*cmp)(void *, void *));
 
