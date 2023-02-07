@@ -50,9 +50,16 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				list_sort.c			\
 				)
 
+DIR_TEST	:=	../tests/
+SRC_TEST	:=	$(addprefix $(DIR_TEST),\
+				test_list.c		\
+				)
+
 ROOT_OBJ	:=	./.obj/
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
+
+UNIT_TEST	:=	./unit_test
 
 TOTAL_SRC	:=	$(words $(OBJ))
 TOTAL_OBJ	:=	0
@@ -79,14 +86,36 @@ $(NAME):			$(OBJ)
 	$(CLINKER) $(NAME) $(OBJ)
 	@echo -e 'SRC files compiled: $(TOTAL_OBJ)'
 
+$(UNIT_TEST):		CFLAGS += -lcriterion --coverage
+$(UNIT_TEST):
+	@echo -e '\nBuilding target: $@'
+	$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $(UNIT_TEST)
+	@echo -e 'SRC files compiled: $(TOTAL_SRC)'
+
+test_run:			$(UNIT_TEST)
+	@echo -e '\nRunning unit tests:'
+	./$(UNIT_TEST)
+
+test_coverage:		test_run
+	@echo -e '\nGenerating coverage report:'
+	gcovr --exclude tests/
+
+
 debug:				CFLAGS += -g
 debug:				re
 
 clean:
+	@echo 'Cleaning directory: $(ROOT_OBJ)'
 	$(RM) $(ROOT_OBJ)
+	@echo 'Cleaning directory: ./'
+	$(RM) *.gcda
+	$(RM) *.gcno
 
 fclean:				clean
+	@echo 'Cleaning target: $(NAME)'
 	$(RM) $(NAME)
+	@echo 'Cleaning target: $(UNIT_TEST)'
+	$(RM) $(UNIT_TEST)
 
 re:					fclean all
 
