@@ -5,7 +5,7 @@
 ** ice_atoi.c
 */
 
-long long ice_atoi(char *str)
+long long ice_atoi(const char *str)
 {
     int i = 0;
     long long nb = 0;

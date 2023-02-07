@@ -3,6 +3,9 @@
 .idea
 .obj
 
+# Binaries
+unit_test
+
 # Extension
 *.o
 *.a
