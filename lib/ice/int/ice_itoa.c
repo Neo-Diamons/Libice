@@ -11,7 +11,7 @@ static void strrev_sized(char *buffer, int i)
 {
     char tmp;
 
-    for (int j = 0 ; j <= i / 2  ; j++) {
+    for (int j = 0 ; j <= i / 2 ; j++) {
         tmp = buffer[j];
         buffer[j] = buffer[i - j];
         buffer[i - j] = tmp;
