@@ -1,3 +1,9 @@
+# Folder
 .vscode
+.idea
+
+# Extension
 *.o
 *.a
+*.gcda
+*.gcno

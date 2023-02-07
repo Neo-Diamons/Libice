@@ -21,7 +21,6 @@ static void add_node(list_t *list, list_node_t *node)
     list->tail->next = node;
     node->prev = list->tail;
     list->tail = node;
-
 }
 
 bool list_add(list_t *list, void *value)
