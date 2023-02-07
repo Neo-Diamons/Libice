@@ -28,10 +28,10 @@ void ice_itoa(long long nb, char *buffer)
         sign = 1;
     }
     for (; nb >= 10 ; i++) {
-        buffer[i] = 48 + nb % 10;
+        buffer[i] = (char)(48 + nb % 10);
         nb /= 10;
     }
-    buffer[i] = 48 + nb % 10;
+    buffer[i] = (char)(48 + nb % 10);
     if (sign) {
         buffer[i + 1] = '-';
         i++;
