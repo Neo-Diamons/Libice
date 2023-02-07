@@ -2,6 +2,36 @@
 
 #include "ice/int.h"
 
+Test(ice_intlen, digit) {
+    int result = ice_intlen(7);
+
+    cr_assert_eq(result, 1, "Digit should be handled, get %d", result);
+}
+
+Test(ice_intlen, zero) {
+    int result = ice_intlen(0);
+
+    cr_assert_eq(result, 1, "Zero should be handled, get %d", result);
+}
+
+Test(ice_intlen, negative_digit) {
+    int result = ice_intlen(-3);
+
+    cr_assert_eq(result, 2, "Negative digit should be handled, get %d", result);
+}
+
+Test(ice_intlen, max_long_long) {
+    int result = ice_intlen(9223372036854775807);
+
+    cr_assert_eq(result, 19, "Max long long should be handled, get %d", result);
+}
+
+Test(ice_intlen, min_long_long) {
+    int result = ice_intlen(-9223372036854775807);
+
+    cr_assert_eq(result, 20, "Min long long should be handled, get %d", result);
+}
+
 Test(ice_atoi, digit_to_int) {
     int result = (int)ice_atoi("7");
 

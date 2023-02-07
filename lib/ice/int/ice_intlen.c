@@ -16,5 +16,5 @@ int ice_intlen(long long nb)
     for (; nb >= 10 ; i++)
         nb /= 10;
 
-    return i++;
+    return ++i;
 }
