@@ -37,7 +37,7 @@ void list_destroy_node(list_t *list, void(*destroy_node)(void *));
  * @brief Add a value at the end of list
  * @param list The list
  * @param value The value to add
- * @return unsigned int The size of the list
+ * @return bool True if the value was added
 */
 bool list_add(list_t *list, void *value);
 
