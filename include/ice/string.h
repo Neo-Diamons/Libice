@@ -13,7 +13,7 @@
  * @param str that will be analysed.
  * @return The len of the str.
  */
-int ice_strlen(const char *str);
+unsigned long long ice_strlen(const char *str);
 
 /**
  * @brief Compare two str.

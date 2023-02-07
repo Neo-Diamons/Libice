@@ -5,9 +5,14 @@
 ** ice_strlen.c
 */
 
-int ice_strlen(const char *str)
+#include <stddef.h>
+
+unsigned long long ice_strlen(const char *str)
 {
-    int i = 0;
+    unsigned long long i = 0;
+
+    if (str == NULL)
+        return 0;
 
     for (; str[i] ; i++);
 
