@@ -1,5 +1,7 @@
 #include <criterion/criterion.h>
 
+#include "ice/string.h"
+
 #include "list.h"
 
 Test(list_create, create_list) {
@@ -57,4 +59,26 @@ Test(list_add, add_list_to_uninitialized_list) {
 
     bool r = list_add(list, "Hello");
     cr_assert_eq(r, true, "list_add() returned false");
+}
+
+Test(list_destroy_node, destroy_list_and_node) {
+    bool r;
+    char *str1 = malloc(sizeof(char) * 10);
+    char *str2 = malloc(sizeof(char) * 10);
+    list_t *list = list_create();
+
+    cr_assert_neq(list, NULL, "list_create() returned NULL");
+    cr_assert_neq(str1, NULL, "malloc failed");
+    cr_assert_neq(str2, NULL, "malloc failed");
+
+    ice_strcpy(str1, "Hello");
+    ice_strcpy(str2, "World!");
+
+    r = list_add(list, str1);
+    cr_assert_eq(r, false, "list_add() returned true");
+
+    r = list_add(list, str2);
+    cr_assert_eq(r, false, "list_add() returned true");
+
+    list_destroy_node(list, free);
 }
