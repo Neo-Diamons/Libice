@@ -9,7 +9,7 @@
 
 #include "list.h"
 
-void *list_remove(list_t *list, ULL index)
+void *list_remove(list_t *list, ull_t index)
 {
     void *value;
     list_node_t *node;
@@ -18,7 +18,7 @@ void *list_remove(list_t *list, ULL index)
         return NULL;
 
     node = list->head;
-    for (ULL i = 0; i < index; i++)
+    for (ull_t i = 0; i < index; i++)
         node = node->next;
 
     list_pop_node(list, node);

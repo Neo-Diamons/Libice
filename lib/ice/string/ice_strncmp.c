@@ -7,9 +7,9 @@
 
 #include "ice/types.h"
 
-char ice_strncmp(const char* str1, const char* str2, ULL n)
+char ice_strncmp(const char* str1, const char* str2, ull_t n)
 {
-    ULL i = 0;
+    ull_t i = 0;
 
     for (; (str1[i]) && (i < n) ; i++) {
         if (str1[i] < str2[i])

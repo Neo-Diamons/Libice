@@ -7,9 +7,9 @@
 
 #include "ice/types.h"
 
-void ice_strncpy(char *dest, const char *src, ULL n)
+void ice_strncpy(char *dest, const char *src, ull_t n)
 {
-    ULL i = 0;
+    ull_t i = 0;
 
     for (; (src[i]) && (i < n) ; i++)
         dest[i] = src[i];

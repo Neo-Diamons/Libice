@@ -9,7 +9,7 @@
 
 #include "ice/types.h"
 
-static void strrev_sized(char *buffer, UC i)
+static void strrev_sized(char *buffer, uc_t i)
 {
     char tmp;
 
@@ -22,7 +22,7 @@ static void strrev_sized(char *buffer, UC i)
 
 void ice_itoa(long long nb, char *buffer)
 {
-    UC i = 0;
+    uc_t i = 0;
     bool sign = 0;
 
     if (nb < 0) {

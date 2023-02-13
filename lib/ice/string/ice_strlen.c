@@ -9,9 +9,9 @@
 
 #include "ice/types.h"
 
-ULL ice_strlen(const char *str)
+ull_t ice_strlen(const char *str)
 {
-    ULL i = 0;
+    ull_t i = 0;
 
     if (str == NULL)
         return 0;

@@ -10,9 +10,9 @@
 #include "ice/int.h"
 #include "ice/string.h"
 
-char *ice_strndup(const char *str, ULL n)
+char *ice_strndup(const char *str, ull_t n)
 {
-    ULL len = MIN(ice_strlen(str), n);
+    ull_t len = MIN(ice_strlen(str), n);
     char *new = malloc(sizeof(char) * (len + 1));
 
     if ((new == NULL) || (str == NULL))

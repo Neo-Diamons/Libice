@@ -19,7 +19,7 @@ typedef struct list_node_s {
 typedef struct list_s {
     list_node_t *head;
     list_node_t *tail;
-    ULL size;
+    ull_t size;
 } list_t;
 
 #endif /* !LIST_STRUCT_H */

@@ -9,7 +9,7 @@
 
 long long ice_atoi(const char *str)
 {
-    ULL i = 0;
+    ull_t i = 0;
     long long nb = 0;
     int signe = 1;
 
