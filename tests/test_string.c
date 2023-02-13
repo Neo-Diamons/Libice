@@ -114,3 +114,43 @@ Test(ice_strncmp, different_higher_and_same_size_and_n_equal_size) {
 
     cr_assert_eq(res, 30, "ice_strncmp() returned %i instead of 30", res);
 }
+
+Test(ice_strdup, basic) {
+    char *str = ice_strdup("Hello World!");
+
+    cr_assert_str_eq(str, "Hello World!", "ice_strdup() returned %s instead of Hello World!", str);
+    free(str);
+}
+
+Test(ice_strdup, null) {
+    char *str = ice_strdup(NULL);
+
+    cr_assert_null(str, "ice_strdup() returned %s instead of NULL", str);
+}
+
+Test(ice_strdup, empty) {
+    char *str = ice_strdup("");
+
+    cr_assert_str_eq(str, "", "ice_strdup() returned %s instead of \"\"", str);
+    free(str);
+}
+
+Test(ice_strndup, basic) {
+    char *str = ice_strndup("Hello World!", 5);
+
+    cr_assert_str_eq(str, "Hello", "ice_strndup() returned %s instead of Hello World!", str);
+    free(str);
+}
+
+Test(ice_strndup, null) {
+    char *str = ice_strndup(NULL, 5);
+
+    cr_assert_null(str, "ice_strndup() returned %s instead of NULL", str);
+}
+
+Test(ice_strndup, empty) {
+    char *str = ice_strndup("", 5);
+
+    cr_assert_str_eq(str, "", "ice_strndup() returned %s instead of \"\"", str);
+    free(str);
+}

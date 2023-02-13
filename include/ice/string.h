@@ -66,4 +66,19 @@ void ice_strcat(char *dest, const char *str);
  */
 void ice_strncat(char *dest, const char *str, int n);
 
+/**
+ * @brief Duplicate the str.
+ * @param str that will be duplicated.
+ * @return The duplicated str.
+ */
+char *ice_strdup(const char *str);
+
+/**
+ * @brief Duplicate n first char of the str.
+ * @param str that will be duplicated.
+ * @param n that will be duplicated.
+ * @return The duplicated str.
+ */
+char *ice_strndup(const char *str, int n);
+
 #endif /* !ICE_STRING_H */
