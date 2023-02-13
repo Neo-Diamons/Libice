@@ -13,13 +13,13 @@
  * @param str that will be printed.
  * @return Nothing.
  */
-int ice_puts(const char *str);
+ssize_t ice_puts(const char *str);
 
 /**
  * @brief Print in the stderr.
  * @param str that will be printed.
 * @return Nothing.
  */
-int ice_perror(const char *str);
+ssize_t ice_perror(const char *str);
 
 #endif /* !ICE_OUTPUT_H */

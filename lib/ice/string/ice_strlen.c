@@ -7,9 +7,11 @@
 
 #include <stddef.h>
 
-unsigned long long ice_strlen(const char *str)
+#include "ice/types.h"
+
+ULL ice_strlen(const char *str)
 {
-    unsigned long long i = 0;
+    ULL i = 0;
 
     if (str == NULL)
         return 0;

@@ -5,9 +5,9 @@
 ** ice_intlen.c
 */
 
-int ice_intlen(long long nb)
+short ice_intlen(long long nb)
 {
-    int i = 0;
+    short i = 0;
 
     if (nb < 0) {
         nb = -nb;

@@ -5,9 +5,11 @@
 ** ice_atoi.c
 */
 
+#include "ice/types.h"
+
 long long ice_atoi(const char *str)
 {
-    int i = 0;
+    ULL i = 0;
     long long nb = 0;
     int signe = 1;
 

@@ -9,6 +9,7 @@
     #define LIST_H
 
     #include <stdbool.h>
+
     #include "list/struct.h"
 
 /**
@@ -53,7 +54,7 @@ unsigned int list_add_node(list_t *list, list_node_t *node);
  * @param index The index
  * @return void* The value
 */
-void *list_remove(list_t *list, unsigned int index);
+void *list_remove(list_t *list, ULL index);
 
 /**
  * @brief Remove the node
@@ -69,7 +70,7 @@ void *list_remove_node(list_t *list, list_node_t *node);
  * @param index The index
  * @return void* The value
 */
-void *list_get(list_t *list, unsigned int index);
+void *list_get(list_t *list, ULL index);
 
 /**
  * @brief Pop the node at the index
@@ -77,7 +78,7 @@ void *list_get(list_t *list, unsigned int index);
  * @param index The index
  * @return list_node_t* The node
 */
-void *list_pop(list_t *list, unsigned int index);
+void *list_pop(list_t *list, ULL index);
 
 /**
  * @brief Pop the node
@@ -92,6 +93,6 @@ list_node_t *list_pop_node(list_t *list, list_node_t *node);
  * @param list The list
  * @param cmp The compare function
 */
-void list_sort(list_t *list, int (*cmp)(void *, void *));
+void list_sort(list_t *list, ULL (*cmp)(void *, void *));
 
 #endif /* !LIST_H */

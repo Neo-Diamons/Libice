@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+
 #include "list.h"
 
 static void add_node(list_t *list, list_node_t *node)

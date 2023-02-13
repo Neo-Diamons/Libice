@@ -5,9 +5,11 @@
 ** ice_strncpy.c
 */
 
-void ice_strncpy(char *dest, const char *src, int n)
+#include "ice/types.h"
+
+void ice_strncpy(char *dest, const char *src, ULL n)
 {
-    int i = 0;
+    ULL i = 0;
 
     for (; (src[i]) && (i < n) ; i++)
         dest[i] = src[i];

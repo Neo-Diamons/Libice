@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+
 #include "list.h"
 
 void list_destroy_node(list_t *list, void(*destroy_node)(void *))

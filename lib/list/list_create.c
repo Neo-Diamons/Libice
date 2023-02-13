@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+
 #include "list.h"
 
 list_t *list_create(void)

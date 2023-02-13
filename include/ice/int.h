@@ -13,15 +13,14 @@
 
 /**
  * @brief #include "ice/int.h"
- * @param nb that will be printed.
- * @param base that will be printed.
+ * @param nb The int to get the len.
  * @return Len of the int.
  */
-int ice_intlen(long long nb);
+short ice_intlen(long long nb);
 
 /**
  * @brief #include "ice/int.h"
- * @param nb that will be printed.
+ * @param nb The int to convert.
  * @param buffer int will be add.
  * @return Nothing.
  */
@@ -29,7 +28,7 @@ void ice_itoa(long long nb, char *buffer);
 
 /**
  * @brief #include "ice/int.h"
- * @param str that will be analysed.
+ * @param str The str to convert.
  * @return The int extract from the str.
  */
 long long ice_atoi(const char *str);

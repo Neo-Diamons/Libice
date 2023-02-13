@@ -5,7 +5,6 @@
 ** list_sort.c
 */
 
-#include <stdlib.h>
 #include "list.h"
 
 static void swap_node(list_node_t *node1, list_node_t *node2)
@@ -16,7 +15,7 @@ static void swap_node(list_node_t *node1, list_node_t *node2)
     node2->value = tmp;
 }
 
-static void list_revsort(list_node_t *node, int (*cmp)(void *, void *))
+static void list_revsort(list_node_t *node, ULL (*cmp)(void *, void *))
 {
     while ((node->prev) && (cmp(node->prev->value, node->value) > 0)) {
         swap_node(node->prev, node);
@@ -24,7 +23,7 @@ static void list_revsort(list_node_t *node, int (*cmp)(void *, void *))
     }
 }
 
-void list_sort(list_t *list, int (*cmp)(void *, void *))
+void list_sort(list_t *list, ULL (*cmp)(void *, void *))
 {
     if (list->size == 0)
         return;

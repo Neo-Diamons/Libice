@@ -6,9 +6,10 @@
 */
 
 #include <stdlib.h>
+
 #include "list.h"
 
-void *list_get(list_t *list, unsigned int index)
+void *list_get(list_t *list, ULL index)
 {
     list_node_t *node;
 
@@ -16,7 +17,7 @@ void *list_get(list_t *list, unsigned int index)
         return NULL;
 
     node = list->head;
-    for (unsigned int i = 0 ; i < index ; i++)
+    for (ULL i = 0 ; i < index ; i++)
         node = node->next;
 
     return node->value;

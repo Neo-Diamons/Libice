@@ -7,7 +7,7 @@
 
 #include "ice/string.h"
 
-void ice_strncat(char *dest, const char *src, int n)
+void ice_strncat(char *dest, const char *src, ULL n)
 {
     ice_strncpy((dest + ice_strlen(dest)), src, n);
 }

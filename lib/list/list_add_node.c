@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+
 #include "list.h"
 
 unsigned int list_add_node(list_t *list, list_node_t *node)

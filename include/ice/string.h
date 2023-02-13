@@ -8,12 +8,14 @@
 #ifndef ICE_STRING_H
     #define ICE_STRING_H
 
+    #include "ice/types.h"
+
 /**
  * @brief Get the len of the str.
  * @param str that will be analysed.
  * @return The len of the str.
  */
-unsigned long long ice_strlen(const char *str);
+ULL ice_strlen(const char *str);
 
 /**
  * @brief Compare two str.
@@ -21,7 +23,7 @@ unsigned long long ice_strlen(const char *str);
  * @param str2 that will be compared.
  * @return 0 if the str are equals, ascii difference if not.
  */
-int ice_strcmp(const char *str1, const char *str2);
+short ice_strcmp(const char *str1, const char *str2);
 
 /**
  * @brief Compare n first char of two str.
@@ -30,7 +32,7 @@ int ice_strcmp(const char *str1, const char *str2);
  * @param n that will be compared.
  * @return 0 if the str are equals, ascii difference if not.
  */
-int ice_strncmp(const char *str1, const char *str2, unsigned int n);
+short ice_strncmp(const char *str1, const char *str2, ULL n);
 
 /**
  * @brief Copy the str.
@@ -47,7 +49,7 @@ void ice_strcpy(char *dest, const char *str);
  * @param n that will be copied.
  * @return Nothing.
 */
-void ice_strncpy(char *dest, const char *str, int n);
+void ice_strncpy(char *dest, const char *str, ULL n);
 
 /**
  * @brief Concat two str.
@@ -64,7 +66,7 @@ void ice_strcat(char *dest, const char *str);
  * @param n that will be concatenated.
  * @return Nothing.
  */
-void ice_strncat(char *dest, const char *str, int n);
+void ice_strncat(char *dest, const char *str, ULL n);
 
 /**
  * @brief Duplicate the str.
@@ -79,6 +81,6 @@ char *ice_strdup(const char *str);
  * @param n that will be duplicated.
  * @return The duplicated str.
  */
-char *ice_strndup(const char *str, int n);
+char *ice_strndup(const char *str, ULL n);
 
 #endif /* !ICE_STRING_H */

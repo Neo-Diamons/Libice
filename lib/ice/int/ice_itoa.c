@@ -7,11 +7,13 @@
 
 #include <stdbool.h>
 
-static void strrev_sized(char *buffer, int i)
+#include "ice/types.h"
+
+static void strrev_sized(char *buffer, UC i)
 {
     char tmp;
 
-    for (int j = 0 ; j <= i / 2 ; j++) {
+    for (short j = 0 ; j <= i / 2 ; j++) {
         tmp = buffer[j];
         buffer[j] = buffer[i - j];
         buffer[i - j] = tmp;
@@ -20,7 +22,7 @@ static void strrev_sized(char *buffer, int i)
 
 void ice_itoa(long long nb, char *buffer)
 {
-    int i = 0;
+    UC i = 0;
     bool sign = 0;
 
     if (nb < 0) {

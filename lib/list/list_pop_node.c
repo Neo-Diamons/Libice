@@ -1,11 +1,12 @@
 /*
 ** EPITECH PROJECT, 2023
-** libice
+** list
 ** File description:
 ** list_pop_node.c
 */
 
 #include <stdlib.h>
+
 #include "list.h"
 
 list_node_t *list_pop_node(list_t *list, list_node_t *node)

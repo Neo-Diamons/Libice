@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** libice
+** libice/string
 ** File description:
 ** ice_strdup.c
 */
