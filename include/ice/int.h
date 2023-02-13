@@ -8,6 +8,9 @@
 #ifndef ICE_INT_H
     #define ICE_INT_H
 
+    #define MAX(a, b) ((a) > (b) ? (a) : (b))
+    #define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 /**
  * @brief #include "ice/int.h"
  * @param nb that will be printed.
