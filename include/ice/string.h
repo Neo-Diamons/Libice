@@ -24,6 +24,15 @@ unsigned long long ice_strlen(const char *str);
 int ice_strcmp(const char *str1, const char *str2);
 
 /**
+ * @brief Compare n first char of two str.
+ * @param str1 that will be compared.
+ * @param str2 that will be compared.
+ * @param n that will be compared.
+ * @return 0 if the str are equals, ascii difference if not.
+ */
+int ice_strncmp(const char *str1, const char *str2, unsigned int n);
+
+/**
  * @brief Copy the str.
  * @param dest that will be copied.
  * @param str that will be copied.

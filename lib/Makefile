@@ -32,6 +32,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_strcpy.c	\
 				ice_strlen.c	\
 				ice_strncat.c	\
+				ice_strncmp.c	\
 				ice_strncpy.c	\
 				)
 

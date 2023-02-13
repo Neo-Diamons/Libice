@@ -84,3 +84,33 @@ Test(ice_strcmp, different_lower_and_same_size) {
 
     cr_assert_eq(res, -30, "ice_strcmp() returned %i instead of -30", res);
 }
+
+Test(ice_strncmp, basic) {
+    int res = ice_strncmp("Hello World!", "Hello World!", 12);
+
+    cr_assert_eq(res, 0, "ice_strncmp() returned %i instead of 0", res);
+}
+
+Test(ice_strncmp, same_with_n) {
+    int res = ice_strncmp("Hello World!", "Hello World", 11);
+
+    cr_assert_eq(res, 0, "ice_strncmp() returned %i instead of 0", res);
+}
+
+Test(ice_strncmp, different_lower_and_same_size) {
+    int res = ice_strncmp("Hello World!", "Hello World?", 11);
+
+    cr_assert_eq(res, -63, "ice_strncmp() returned %i instead of -63", res);
+}
+
+Test(ice_strncmp, different_lower_and_same_size_and_n_equal_size) {
+    int res = ice_strncmp("Hello World!", "Hello World?", 12);
+
+    cr_assert_eq(res, -30, "ice_strncmp() returned %i instead of -30", res);
+}
+
+Test(ice_strncmp, different_higher_and_same_size_and_n_equal_size) {
+    int res = ice_strncmp("Hello World?", "Hello World!", 12);
+
+    cr_assert_eq(res, 30, "ice_strncmp() returned %i instead of 30", res);
+}
