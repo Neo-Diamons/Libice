@@ -18,6 +18,14 @@
 ull_t ice_strlen(const char *str);
 
 /**
+ * @brief Swap two char of the str.
+ * @param str that will be swapped.
+ * @param a first char index that will be swapped.
+ * @param b second char index that will be swapped.
+ */
+void ice_strswap(char *str, ull_t a, ull_t b);
+
+/**
  * @brief Compare two str.
  * @param str1 that will be compared.
  * @param str2 that will be compared.
@@ -82,5 +90,18 @@ char *ice_strdup(const char *str);
  * @return The duplicated str.
  */
 char *ice_strndup(const char *str, ull_t n);
+
+/**
+ * @brief Reverse the str.
+ * @param str that will be reversed.
+ */
+void ice_strrev(char *str);
+
+/**
+ * @brief Reverse the n first character of the str.
+ * @param str that will be reversed.
+ * @param n number of character reversed.
+ */
+void ice_strnrev(char *str, ull_t n);
 
 #endif /* !ICE_STRING_H */

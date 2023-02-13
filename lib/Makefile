@@ -36,6 +36,9 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_strncmp.c	\
 				ice_strncpy.c	\
 				ice_strndup.c	\
+				ice_strnrev.c	\
+				ice_strrev.c	\
+				ice_strswap.c	\
 				)
 
 DIR			+=	./list/

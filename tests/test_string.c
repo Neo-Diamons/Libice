@@ -172,3 +172,59 @@ Test(ice_strndup, empty) {
     cr_assert_str_eq(str, "", "ice_strndup() returned %s instead of \"\"", str);
     free(str);
 }
+
+Test(ice_strswap, basic) {
+    char str[] = "Hello World!";
+
+    ice_strswap(str, 1, 4);
+
+    cr_assert_str_eq(str, "Holle World!", "ice_strswap() returned %s instead of Holle World!", str);
+}
+
+Test(ice_strrev, basic) {
+    char str[] = "Hello World!";
+
+    ice_strrev(str);
+
+    cr_assert_str_eq(str, "!dlroW olleH", "ice_strrev() returned %s instead of !dlroW olleH", str);
+}
+
+Test(ice_strrev, empty) {
+    char str[] = "";
+
+    ice_strrev(str);
+
+    cr_assert_str_eq(str, "", "ice_strrev() returned %s instead of \"\"", str);
+}
+
+Test(ice_strrev, one_char) {
+    char str[] = "a";
+
+    ice_strrev(str);
+
+    cr_assert_str_eq(str, "a", "ice_strrev() returned %s instead of \"a\"", str);
+}
+
+Test(ice_strnrev, basic) {
+    char str[] = "Hello World!";
+
+    ice_strnrev(str, 4);
+
+    cr_assert_str_eq(str, "olleH World!", "ice_strnrev() returned %s instead of olleH World!", str);
+}
+
+Test(ice_strnrev, empty) {
+    char str[] = "";
+
+    ice_strnrev(str, 5);
+
+    cr_assert_str_eq(str, "", "ice_strnrev() returned %s instead of \"\"", str);
+}
+
+Test(ice_strnrev, one_char) {
+    char str[] = "a";
+
+    ice_strnrev(str, 5);
+
+    cr_assert_str_eq(str, "a", "ice_strnrev() returned %s instead of \"a\"", str);
+}
