@@ -104,4 +104,12 @@ void ice_strrev(char *str);
  */
 void ice_strnrev(char *str, ull_t n);
 
+/**
+ * @brief Split the str.
+ * @param str that will be splitted.
+ * @param delim that will be used to split the str.
+ * @return The splitted str.
+ */
+char **ice_strsplit(char *str, char *delim);
+
 #endif /* !ICE_STRING_H */

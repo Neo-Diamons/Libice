@@ -228,3 +228,23 @@ Test(ice_strnrev, one_char) {
 
     cr_assert_str_eq(str, "a", "ice_strnrev() returned %s instead of \"a\"", str);
 }
+
+Test(ice_strsplit, basic) {
+    char **str = ice_strsplit("Hello World!", " ");
+
+    cr_assert_str_eq(str[0], "Hello", "ice_strsplit() returned %s instead of Hello", str[0]);
+    cr_assert_str_eq(str[1], "World!", "ice_strsplit() returned %s instead of World!", str[1]);
+    cr_assert_null(str[2], "ice_strsplit() returned %s instead of NULL", str[2]);
+
+    free(str[0]);
+    free(str[1]);
+    free(str);
+}
+
+Test(ice_strsplit, empty) {
+    char **str = ice_strsplit("", " ");
+
+    cr_assert_str_eq(str[0], "", "ice_strsplit() returned %s instead of \"\"", str[0]);
+
+    free(str);
+}
