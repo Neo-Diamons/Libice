@@ -20,7 +20,7 @@ ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
             count++;
         }
 
-    return count;
+    return count + 1;
 }
 
 ull_t ice_strsplit_len(char *str, char *delim, ull_t delim_len)
@@ -43,7 +43,7 @@ char **ice_strsplit(char *str, char *delim)
 
     if (tab == NULL)
         return NULL;
-    for (ull_t i = 0 ; i <= split_count ; i++) {
+    for (ull_t i = 0 ; i < split_count ; i++) {
         len = ice_strsplit_len(str, delim, delim_len);
         tab[i] = malloc(sizeof(char) * (len + 1));
 
@@ -54,6 +54,6 @@ char **ice_strsplit(char *str, char *delim)
         str += len + delim_len;
     }
 
-    tab[split_count + 1] = NULL;
+    tab[split_count] = NULL;
     return tab;
 }
