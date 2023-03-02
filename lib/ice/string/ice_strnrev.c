@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 
-#include "ice/types.h"
+#include "ice/macro.h"
 #include "ice/string.h"
 
 void ice_strnrev(char *str, ull_t n)
@@ -15,9 +15,7 @@ void ice_strnrev(char *str, ull_t n)
     ull_t i = 0;
     ull_t j = n;
 
-    if ((str == NULL) || (ice_strlen(str) < n))
-        return;
-
+    ASSERT(IS_NOT_NULL(str) && (ice_strlen(str) >= n));
     for (; i < j ; i++, j--)
         ice_strswap(str, i, j);
 }

@@ -5,6 +5,7 @@
 ** ice_strcat.c
 */
 
+#include "ice/macro.h"
 #include "ice/string.h"
 
 void ice_strcat(char *dest, const char *src)

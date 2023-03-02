@@ -31,7 +31,7 @@ void ice_strswap(char *str, ull_t a, ull_t b);
  * @param str2 that will be compared.
  * @return 0 if the str are equals, ascii difference if not.
  */
-short ice_strcmp(const char *str1, const char *str2);
+char ice_strcmp(const char *str1, const char *str2);
 
 /**
  * @brief Compare n first char of two str.

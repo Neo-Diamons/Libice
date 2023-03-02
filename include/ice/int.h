@@ -10,15 +10,12 @@
 
     #include "ice/types.h"
 
-    #define MAX(a, b) ((a) > (b) ? (a) : (b))
-    #define MIN(a, b) ((a) < (b) ? (a) : (b))
-
 /**
  * @brief #include "ice/int.h"
  * @param nb The int to get the len.
  * @return Len of the int.
  */
-us_t ice_intlen(ll_t nb);
+uc_t ice_intlen(ll_t nb);
 
 /**
  * @brief #include "ice/int.h"

@@ -7,10 +7,10 @@
 
 #include "ice/types.h"
 
-long long ice_atoi(const char *str)
+ll_t ice_atoi(const char *str)
 {
     ull_t i = 0;
-    long long nb = 0;
+    ll_t nb = 0;
     int signe = 1;
 
     for (; (str[i] == '+') || (str[i] == '-') ; i++)

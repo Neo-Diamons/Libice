@@ -13,6 +13,5 @@ void ice_strncpy(char *dest, const char *src, ull_t n)
 
     for (; (src[i]) && (i < n) ; i++)
         dest[i] = src[i];
-
     dest[i] = '\0';
 }

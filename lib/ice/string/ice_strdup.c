@@ -7,15 +7,14 @@
 
 #include <stdlib.h>
 
+#include "ice/macro.h"
 #include "ice/string.h"
 
 char *ice_strdup(const char *str)
 {
     char *new = malloc(sizeof(char) * (ice_strlen(str) + 1));
 
-    if ((new == NULL) || (str == NULL))
-        return NULL;
-
+    ASSERT_RET(IS_NOT_NULL(new) && IS_NOT_NULL(str), NULL);
     ice_strcpy(new, str);
 
     return new;

@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 
+#include "ice/macro.h"
 #include "ice/string.h"
 
 static ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
@@ -41,19 +42,14 @@ char **ice_strsplit(char *str, char *delim)
     ull_t delim_len = ice_strlen(delim);
     char **tab = malloc(sizeof(char *) * (split_count + 1));
 
-    if (tab == NULL)
-        return NULL;
+    ASSERT_RET(IS_NOT_NULL(tab), NULL);
     for (ull_t i = 0 ; i < split_count ; i++) {
         len = ice_strsplit_len(str, delim, delim_len);
         tab[i] = malloc(sizeof(char) * (len + 1));
-
-        if (tab[i] == NULL)
-            return NULL;
-
+        ASSERT_RET(IS_NOT_NULL(tab[i]), NULL);
         ice_strncpy(tab[i], str, len);
         str += len + delim_len;
     }
-
     tab[split_count] = NULL;
     return tab;
 }

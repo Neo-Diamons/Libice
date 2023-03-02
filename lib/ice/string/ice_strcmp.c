@@ -7,7 +7,7 @@
 
 #include "ice/types.h"
 
-short ice_strcmp(const char* str1, const char* str2)
+char ice_strcmp(const char* str1, const char* str2)
 {
     ull_t i = 0;
 

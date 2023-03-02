@@ -7,9 +7,9 @@
 
 #include "ice/types.h"
 
-us_t ice_intlen(ll_t nb)
+uc_t ice_intlen(ll_t nb)
 {
-    short i = 0;
+    uc_t i = 0;
 
     if (nb < 0) {
         nb = -nb;
