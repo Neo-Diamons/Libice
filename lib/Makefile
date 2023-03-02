@@ -71,9 +71,6 @@ OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
 UNIT_TEST	:=	./unit_test
 
-TOTAL_SRC	:=	$(words $(OBJ))
-TOTAL_OBJ	:=	0
-
 RM			:=	rm -rf
 
 CC			:=	gcc
@@ -83,49 +80,53 @@ CFLAGS		:=	-I./../include/ -Wall -Wextra
 all:				$(DIR_OBJ) $(NAME)
 
 $(DIR_OBJ):
-	@echo 'Creating directory: $(ROOT_OBJ)'
-	mkdir -p $(DIR_OBJ)
+	@mkdir -p $(DIR_OBJ)\
+	&& printf "\033[93m[CREATED]\033[0m %s\n" $(DIR_OBJ)\
+	|| printf "\033[31m[ERROR]\033[0m %s\n" $(DIR_OBJ)
 
 $(ROOT_OBJ)%.o:		%.c
-	$(eval TOTAL_OBJ=$(shell echo $$(($(TOTAL_OBJ)+1))))
-	@./progress_bar.sh $(TOTAL_OBJ) $(TOTAL_SRC)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@\
+	&& printf "\033[32m[OK]\033[0m %s\n" $<\
+	|| printf "\033[31m[KO]\033[0m %s\n" $<
 
 $(NAME):			$(OBJ)
-	@echo -e '\nBuilding target: $@'
-	$(CLINKER) $(NAME) $(OBJ)
-	@echo -e 'SRC files compiled: $(TOTAL_OBJ)'
+	@$(CLINKER) $@ $(OBJ)\
+	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
+	|| printf "\033[31m[ERROR]\033[0m %s\n" $@
 
 $(UNIT_TEST):		CFLAGS += -lcriterion --coverage
 $(UNIT_TEST):		fclean
-	@echo -e '\nBuilding target: $@'
-	$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $(UNIT_TEST)
-	@echo -e 'SRC files compiled: $(TOTAL_SRC)'
+	@$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $@\
+	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
+	|| printf "\033[31m[ERROR]\033[0m %s\n" $
 
 test_run:			$(UNIT_TEST)
-	@echo -e '\nRunning unit tests:'
-	./$(UNIT_TEST)
+	@./$(UNIT_TEST)
 
 test_coverage:		test_run
-	@echo -e '\nGenerating coverage report:'
 	gcovr --exclude tests/
 
+test_clean:
+	@[ -f $(UNIT_TEST) ]\
+	&& $(RM) $(UNIT_TEST)\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" $(UNIT_TEST)\
+	&& $(RM) *.gcda\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" *.gcda\
+	&& $(RM) *.gcno\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" *.gcno || true
 
 debug:				CFLAGS += -g
 debug:				re
 
 clean:
-	@echo 'Cleaning directory: $(ROOT_OBJ)'
-	$(RM) $(ROOT_OBJ)
-	@echo 'Cleaning directory: ./'
-	$(RM) *.gcda
-	$(RM) *.gcno
+	@[ -d $(ROOT_OBJ) ]\
+	&& $(RM) $(ROOT_OBJ)\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" $(ROOT_OBJ) || true
 
-fclean:				clean
-	@echo 'Cleaning target: $(NAME)'
-	$(RM) $(NAME)
-	@echo 'Cleaning target: $(UNIT_TEST)'
-	$(RM) $(UNIT_TEST)
+fclean:				clean test_clean
+	@[ -f $(NAME) ]\
+ 	&& $(RM) $(NAME)\
+ 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(NAME) || true
 
 re:					fclean all
 
