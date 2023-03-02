@@ -9,7 +9,7 @@
 
 #include "list.h"
 
-void *list_pop(list_t *list, ull_t index)
+list_node_t *list_pop(list_t *list, ull_t index)
 {
     list_node_t *node;
 

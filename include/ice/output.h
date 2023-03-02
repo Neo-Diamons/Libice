@@ -8,18 +8,20 @@
 #ifndef ICE_OUTPUT_H
     #define ICE_OUTPUT_H
 
+    #include "ice/types.h"
+
 /**
  * @brief Print int the stdout.
  * @param str that will be printed.
- * @return Nothing.
+ * @return The len of the str.
  */
-ssize_t ice_puts(const char *str);
+ull_t ice_puts(const char *str);
 
 /**
  * @brief Print in the stderr.
  * @param str that will be printed.
-* @return Nothing.
+ * @return The len of the str.
  */
-ssize_t ice_perror(const char *str);
+ull_t ice_perror(const char *str);
 
 #endif /* !ICE_OUTPUT_H */

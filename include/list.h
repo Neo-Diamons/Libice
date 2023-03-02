@@ -36,23 +36,26 @@ void list_destroy_node(list_t *list, void(*destroy_node)(void *));
  * @brief Add a value at the end of list
  * @param list The list
  * @param value The value to add
- * @return bool True if the value was added
-*/
+ * @return bool True if error
+ * @note The value must be freed by the user
+ */
 bool list_add(list_t *list, void *value);
 
 /**
  * @brief Add a node at the end of list
  * @param list The list
  * @param node The node to add
- * @return unsigned int The size of the list
+ * @return bool True if error
+ * @note The node must be freed by the user
 */
-unsigned int list_add_node(list_t *list, list_node_t *node);
+bool list_add_node(list_t *list, list_node_t *node);
 
 /**
  * @brief Remove the value at the index
  * @param list The list
  * @param index The index
  * @return void* The value
+ * @note The value must be freed by the user
 */
 void *list_remove(list_t *list, ull_t index);
 
@@ -61,6 +64,7 @@ void *list_remove(list_t *list, ull_t index);
  * @param list The list
  * @param node The node
  * @return void* The value
+ * @note The value must be freed by the user
 */
 void *list_remove_node(list_t *list, list_node_t *node);
 
@@ -77,14 +81,16 @@ void *list_get(list_t *list, ull_t index);
  * @param list The list
  * @param index The index
  * @return list_node_t* The node
+ * @note The node must be freed by the user
 */
-void *list_pop(list_t *list, ull_t index);
+list_node_t *list_pop(list_t *list, ull_t index);
 
 /**
  * @brief Pop the node
  * @param list The list
  * @param node The node
  * @return list_node_t* The node
+ * @note The node must be freed by the user
 */
 list_node_t *list_pop_node(list_t *list, list_node_t *node);
 

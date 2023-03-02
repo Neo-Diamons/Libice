@@ -46,7 +46,6 @@ short ice_strncmp(const char *str1, const char *str2, ull_t n);
  * @brief Copy the str.
  * @param dest that will be copied.
  * @param str that will be copied.
- * @return Nothing.
  */
 void ice_strcpy(char *dest, const char *str);
 
@@ -55,7 +54,6 @@ void ice_strcpy(char *dest, const char *str);
  * @param dest that will be copied.
  * @param str that will be copied.
  * @param n that will be copied.
- * @return Nothing.
 */
 void ice_strncpy(char *dest, const char *str, ull_t n);
 
@@ -63,7 +61,6 @@ void ice_strncpy(char *dest, const char *str, ull_t n);
  * @brief Concat two str.
  * @param dest that will be concatenated.
  * @param str that will be concatenated.
- * @return Nothing.
  */
 void ice_strcat(char *dest, const char *str);
 
@@ -72,7 +69,6 @@ void ice_strcat(char *dest, const char *str);
  * @param dest that will be concatenated.
  * @param str that will be concatenated.
  * @param n that will be concatenated.
- * @return Nothing.
  */
 void ice_strncat(char *dest, const char *str, ull_t n);
 

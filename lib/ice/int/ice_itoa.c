@@ -20,7 +20,7 @@ static void strrev_sized(char *buffer, uc_t i)
     }
 }
 
-void ice_itoa(long long nb, char *buffer)
+void ice_itoa(ll_t nb, char *buffer)
 {
     uc_t i = 0;
     bool sign = 0;

@@ -5,7 +5,9 @@
 ** ice_intlen.c
 */
 
-short ice_intlen(long long nb)
+#include "ice/types.h"
+
+us_t ice_intlen(ll_t nb)
 {
     short i = 0;
 

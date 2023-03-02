@@ -9,7 +9,7 @@
 
 #include "ice/string.h"
 
-ssize_t ice_perror(const char *str)
+ull_t ice_perror(const char *str)
 {
     return write(2, str, ice_strlen(str));
 }

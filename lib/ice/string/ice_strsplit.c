@@ -9,7 +9,7 @@
 
 #include "ice/string.h"
 
-ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
+static ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
 {
     ull_t i = 0;
     ull_t count = 0;
@@ -23,7 +23,7 @@ ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
     return count + 1;
 }
 
-ull_t ice_strsplit_len(char *str, char *delim, ull_t delim_len)
+static ull_t ice_strsplit_len(char *str, char *delim, ull_t delim_len)
 {
     ull_t i = 0;
 
