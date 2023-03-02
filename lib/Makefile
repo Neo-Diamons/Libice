@@ -98,7 +98,7 @@ $(UNIT_TEST):		CFLAGS += -lcriterion --coverage
 $(UNIT_TEST):		fclean
 	@$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $@\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
-	|| printf "\033[31m[ERROR]\033[0m %s\n" $
+	|| printf "\033[31m[ERROR]\033[0m %s\n" $@
 
 test_run:			$(UNIT_TEST)
 	@./$(UNIT_TEST)
