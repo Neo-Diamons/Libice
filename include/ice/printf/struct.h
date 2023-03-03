@@ -24,7 +24,7 @@ typedef struct buffer_s {
     ull_t len;
     uc_t flags;
     ull_t width;
-    ull_t precision;
+    ull_t prec;
 } buffer_t;
 
 typedef struct conversion_s {
@@ -32,10 +32,4 @@ typedef struct conversion_s {
     bool (*func)(buffer_t*, va_list);
 } conversion_t;
 
-//typedef struct flag_s {
-//    bool hash;
-//    enum {NO_PAD, ZERO, MINUS} zero_minus;
-//    enum {NO_SIGN, SPACE, PLUS} space_plus;
-//} flag_t;
-
-#endif //LIBICE_STRUCT_H
+#endif /* !LIBICE_STRUCT_H */

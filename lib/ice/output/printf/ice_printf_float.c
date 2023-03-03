@@ -15,14 +15,14 @@ bool ice_printf_float(buffer_t *buffer, va_list args)
 
     if (nb >= 0) {
         if (buffer->flags & FLAG_SPACE)
-            ASSERT_RET(!add_to_buffer(buffer, ' '), true);
+            ASSERT_RET(!add_buffer(buffer, ' '), true);
         if (buffer->flags & FLAG_PLUS)
-            ASSERT_RET(!add_to_buffer(buffer, '+'), true);
+            ASSERT_RET(!add_buffer(buffer, '+'), true);
     }
 
-    if (buffer->precision == (ull_t)(-1))
-        buffer->precision = 6;
-    ice_ftoa(nb, str, (int)buffer->precision);
+    if (buffer->prec == (ull_t)(-1))
+        buffer->prec = 6;
+    ice_ftoa(nb, str, (int)buffer->prec);
     ASSERT_RET(!add_signed_width(buffer, str), true);
 
     return false;

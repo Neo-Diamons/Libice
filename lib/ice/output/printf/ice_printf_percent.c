@@ -9,5 +9,5 @@
 
 bool ice_printf_percent(buffer_t *buffer, va_list UNUSED(args))
 {
-    return add_to_buffer(buffer, '%');
+    return add_buffer(buffer, '%');
 }

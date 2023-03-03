@@ -17,15 +17,15 @@ bool ice_printf_str(buffer_t *buffer, va_list args)
 
     if (IS_NULL(str)) {
         str = "(null)";
-        buffer->precision = (ull_t)(-1);
+        buffer->prec = (ull_t)(-1);
     }
-    if (buffer->precision != (ull_t)(-1))
-        str = ice_strndup(str, buffer->precision);
+    if (buffer->prec != (ull_t)(-1))
+        str = ice_strndup(str, buffer->prec);
 
     ASSERT_RET(IS_NOT_NULL(str), true);
     ASSERT_RET(!add_width(buffer, str), true);
 
-    if (buffer->precision != (ull_t)(-1))
+    if (buffer->prec != (ull_t)(-1))
         free(str);
     return false;
 }

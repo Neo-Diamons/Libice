@@ -8,6 +8,7 @@
 #ifndef LIBICE_CONST_H
     #define LIBICE_CONST_H
 
+    #include <stddef.h>
     #include "ice/printf/printf.h"
 
 const conversion_t conversion[] = {
