@@ -10,9 +10,17 @@
 
 bool ice_printf_float(buffer_t *buffer, va_list args)
 {
+    double nb = va_arg(args, double);
     char str[100];
 
-    ice_ftoa(va_arg(args, double), str, 6);
+    if (nb >= 0) {
+        if (buffer->flags & FLAG_SPACE)
+            ASSERT_RET(!add_to_buffer(buffer, ' '), true);
+        if (buffer->flags & FLAG_PLUS)
+            ASSERT_RET(!add_to_buffer(buffer, '+'), true);
+    }
+
+    ice_ftoa(nb, str, 6);
     ASSERT_RET(!adds_to_buffer(buffer, str), true);
 
     return false;

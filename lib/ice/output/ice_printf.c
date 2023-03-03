@@ -24,6 +24,9 @@ static void search_conversion(buffer_t *buffer, const char *format,
             case '+': buffer->flags |= FLAG_PLUS; continue;
         }
 
+        if (buffer->flags & FLAG_MINUS) buffer->flags ^= FLAG_ZERO;
+        if (buffer->flags & FLAG_PLUS) buffer->flags ^= FLAG_SPACE;
+
         for (int k = 0; conversion[k].conversion; k++) {
             if (format[*i] == conversion[k].conversion) {
                 conversion[k].func(buffer, args);
