@@ -5,7 +5,7 @@
 ** ice_printf_percent.c
 */
 
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 bool ice_printf_percent(buffer_t *buffer, va_list UNUSED(args))
 {

@@ -6,7 +6,7 @@
 */
 
 #include "ice/int.h"
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 bool ice_printf_octal(buffer_t *buffer, va_list args)
 {

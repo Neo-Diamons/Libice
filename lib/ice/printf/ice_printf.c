@@ -8,7 +8,7 @@
 #include <malloc.h>
 #include <unistd.h>
 
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 ull_t ice_printf(const char *format, ...)
 {

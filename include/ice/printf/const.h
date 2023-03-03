@@ -9,7 +9,7 @@
     #define LIBICE_CONST_H
 
     #include <stddef.h>
-    #include "ice/printf/printf.h"
+    #include "ice/printf/private.h"
 
 const conversion_t conversion[] = {
     {'d', ice_printf_int},

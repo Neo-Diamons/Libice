@@ -5,7 +5,7 @@
 ** handle_format.c
 */
 
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 void handle_format(buffer_t *buffer, const char *format, va_list args)
 {

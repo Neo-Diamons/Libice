@@ -6,7 +6,7 @@
 */
 
 #include "ice/string.h"
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 static bool add_width_len(buffer_t *buffer, ull_t len, char c)
 {

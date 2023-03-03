@@ -24,12 +24,16 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_ICE), ./output/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				ice_printf.c	\
 				ice_perror.c	\
 				ice_puts.c		\
 				)
 
-DIR			+=	$(addprefix $(lastword $(DIR)), ./printf/)
+DIR			+=	$(addprefix $(DIR_ICE), ./printf/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_printf.c	\
+				)
+
+DIR			+=	$(addprefix $(lastword $(DIR)), ./private/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				handle_format.c			\
 				get_argument.c			\

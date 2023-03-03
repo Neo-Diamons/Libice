@@ -5,7 +5,7 @@
 ** ice_printf_len.c
 */
 
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 bool ice_printf_len(buffer_t *buffer, va_list args)
 {

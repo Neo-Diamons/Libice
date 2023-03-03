@@ -5,8 +5,8 @@
 ** printf.h
 */
 
-#ifndef LIBICE_PRINTF_H
-    #define LIBICE_PRINTF_H
+#ifndef LIBICE_PRIVATE_H
+    #define LIBICE_PRIVATE_H
 
     #include <stdarg.h>
     #include <stdbool.h>

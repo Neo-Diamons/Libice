@@ -9,7 +9,7 @@
 
 #include "ice/macro.h"
 #include "ice/string.h"
-#include "ice/printf/printf.h"
+#include "ice/printf/private.h"
 
 bool ice_printf_str(buffer_t *buffer, va_list args)
 {
