@@ -41,6 +41,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_printf_hexa.c		\
 				ice_printf_hexa_upper.c	\
 				ice_printf_ptr.c		\
+				ice_printf_len.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_ICE), ./string/)

@@ -36,4 +36,6 @@ bool ice_printf_hexa_upper(buffer_t *buffer, va_list args);
 
 bool ice_printf_ptr(buffer_t *buffer, va_list args);
 
+bool ice_printf_len(buffer_t *buffer, va_list args);
+
 #endif /* !LIBICE_PRINTF_H */
