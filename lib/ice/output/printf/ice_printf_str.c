@@ -12,5 +12,5 @@ bool ice_printf_str(buffer_t *buffer, va_list args)
 {
     char *str = va_arg(args, char *);
 
-    return adds_to_buffer(buffer, str);
+    return add_width(buffer, str);
 }

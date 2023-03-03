@@ -15,7 +15,7 @@ bool ice_printf_ptr(buffer_t *buffer, va_list args)
     ASSERT_RET(!adds_to_buffer(buffer, "0x"), true);
 
     ice_btoa(va_arg(args, unsigned int), str, "0123456789abcdef");
-    ASSERT_RET(!adds_to_buffer(buffer, str), true);
+    ASSERT_RET(!add_width(buffer, str), true);
 
     return false;
 }

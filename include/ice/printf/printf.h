@@ -18,6 +18,12 @@ bool add_to_buffer(buffer_t *buffer, char c);
 
 bool adds_to_buffer(buffer_t *buffer, char *str);
 
+bool add_width(buffer_t *buffer, char *str);
+
+bool add_signed_width(buffer_t *buffer, char *str);
+
+bool add_unsigned_width(buffer_t *buffer, char *str);
+
 bool ice_printf_char(buffer_t *buffer, va_list args);
 
 bool ice_printf_str(buffer_t *buffer, va_list args);

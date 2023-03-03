@@ -24,8 +24,17 @@ static void search_conversion(buffer_t *buffer, const char *format,
             case '+': buffer->flags |= FLAG_PLUS; continue;
         }
 
-        if (buffer->flags & FLAG_MINUS) buffer->flags ^= FLAG_ZERO;
-        if (buffer->flags & FLAG_PLUS) buffer->flags ^= FLAG_SPACE;
+        if (buffer->flags & FLAG_ZERO && buffer->flags & FLAG_MINUS)
+            buffer->flags &= ~FLAG_ZERO;
+        if (buffer->flags & FLAG_SPACE && buffer->flags & FLAG_PLUS)
+            buffer->flags &= ~FLAG_SPACE;
+
+        if ('0' < format[*i] && format[*i] <= '9') {
+            buffer->width = 0;
+            for (; '0' <= format[*i] && format[*i] <= '9'; (*i)++)
+                buffer->width = buffer->width * 10 + format[*i] - '0';
+            (*i)--;
+        }
 
         for (int k = 0; conversion[k].conversion; k++) {
             if (format[*i] == conversion[k].conversion) {

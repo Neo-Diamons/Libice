@@ -17,7 +17,7 @@ bool ice_printf_octal(buffer_t *buffer, va_list args)
         ASSERT_RET(!adds_to_buffer(buffer, "0"), true);
 
     ice_btoa(nb, str, "01234567");
-    ASSERT_RET(!adds_to_buffer(buffer, str), true);
+    ASSERT_RET(!add_unsigned_width(buffer, str), true);
 
     return false;
 }

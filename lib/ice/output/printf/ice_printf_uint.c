@@ -13,7 +13,7 @@ bool ice_printf_uint(buffer_t *buffer, va_list args)
     char str[12];
 
     ice_utoa(va_arg(args, unsigned int), str);
-    ASSERT_RET(!adds_to_buffer(buffer, str), true);
+    ASSERT_RET(!add_unsigned_width(buffer, str), true);
 
     return true;
 }

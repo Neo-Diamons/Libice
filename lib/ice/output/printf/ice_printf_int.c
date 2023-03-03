@@ -21,7 +21,7 @@ bool ice_printf_int(buffer_t *buffer, va_list args)
     }
 
     ice_itoa(nb, str);
-    ASSERT_RET(!adds_to_buffer(buffer, str), true);
+    ASSERT_RET(!add_signed_width(buffer, str), true);
 
     return false;
 }

@@ -23,6 +23,7 @@ typedef struct buffer_s {
     ull_t left;
     ull_t len;
     uc_t flags;
+    ull_t width;
 } buffer_t;
 
 typedef struct conversion_s {

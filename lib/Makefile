@@ -33,6 +33,7 @@ DIR			+=	$(addprefix $(lastword $(DIR)), ./printf/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				add_to_buffer.c			\
 				adds_to_buffer.c		\
+				add_width.c				\
 				ice_printf_char.c		\
 				ice_printf_str.c		\
 				ice_printf_percent.c	\
