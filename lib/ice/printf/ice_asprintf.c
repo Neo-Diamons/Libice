@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** libice
 ** File description:
-** ice_printf.c
+** ice_sprintf.c
 */
 
 #include <malloc.h>
@@ -10,7 +10,7 @@
 
 #include "ice/printf/private.h"
 
-ull_t ice_printf(const char *restrict format, ...)
+ull_t ice_asprintf(char *restrict str, const char *restrict format, ...)
 {
     va_list args;
     buffer_t buffer = {0};
@@ -24,7 +24,7 @@ ull_t ice_printf(const char *restrict format, ...)
     va_end(args);
 
     len = write(1, buffer.str, buffer.len);
-    free(buffer.str);
+    str[0] = *buffer.str;
 
     return len;
 }
