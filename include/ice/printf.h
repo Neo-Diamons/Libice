@@ -34,6 +34,6 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...);
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_asprintf(char *restrict str, const char *restrict format, ...);
+ull_t ice_asprintf(char **restrict str, const char *restrict format, ...);
 
 #endif /* !LIBICE_PRINTF_H */

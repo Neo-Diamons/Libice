@@ -16,6 +16,7 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...)
     buffer_t buffer = {0};
     ull_t len;
 
+    ASSERT_RET(IS_NOT_NULL(format), (ull_t)(-1));
     buffer.str = malloc(sizeof(char) * 1024);
     buffer.left = 1024;
 

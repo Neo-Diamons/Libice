@@ -29,8 +29,12 @@ void get_flags(buffer_t *buffer, const char *format, ull_t *i)
 
 void get_width(buffer_t *buffer, const char *format, ull_t *i, va_list args)
 {
+    int tmp;
+
     if (format[*i] == '*') {
-        buffer->width = va_arg(args, int);
+        tmp = va_arg(args, int);
+        buffer->width = tmp < 0 ? 0 : tmp;
+        (*i)++;
         return;
     }
 
@@ -42,12 +46,16 @@ void get_width(buffer_t *buffer, const char *format, ull_t *i, va_list args)
 
 void get_precision(buffer_t *buffer, const char *format, ull_t *i, va_list args)
 {
+    int tmp;
+
     buffer->prec = -1;
     if (format[*i] != '.') return;
     (*i)++;
 
     if (format[*i] == '*') {
-        buffer->prec = va_arg(args, int);
+        tmp = va_arg(args, int);
+        buffer->prec = tmp < 0 ? -1 : tmp;
+        (*i)++;
         return;
     }
 

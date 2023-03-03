@@ -10,21 +10,24 @@
 
 #include "ice/printf/private.h"
 
-ull_t ice_asprintf(char *restrict str, const char *restrict format, ...)
+ull_t ice_asprintf(char **restrict str, const char *restrict format, ...)
 {
     va_list args;
     buffer_t buffer = {0};
-    ull_t len;
 
+    if (IS_NULL(str) || IS_NULL(format)) {
+        *str = NULL;
+        return (ull_t) (-1);
+    }
     buffer.str = malloc(sizeof(char) * 1024);
     buffer.left = 1024;
 
     va_start(args, format);
     handle_format(&buffer, format, args);
+    add_buffer(&buffer, '\0');
     va_end(args);
 
-    len = write(1, buffer.str, buffer.len);
-    str[0] = *buffer.str;
+    *str = buffer.len != (ull_t)(-1) ?  buffer.str : NULL;
 
-    return len;
+    return buffer.len;
 }

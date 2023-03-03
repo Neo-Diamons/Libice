@@ -12,6 +12,9 @@ bool ice_printf_binary(buffer_t *buffer, va_list args)
 {
     char str[100];
 
+    if (buffer->flags & FLAG_HASH)
+        ASSERT_RET(!adds_buffer(buffer, "0b"), true);
+
     ice_btoa(va_arg(args, unsigned int), str, "01");
     ASSERT_RET(!add_unsigned_width(buffer, str), true);
 
