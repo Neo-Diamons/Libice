@@ -12,12 +12,10 @@ bool ice_printf_ptr(buffer_t *buffer, va_list args)
 {
     char str[12];
 
-    ASSERT_RET(!add_to_buffer(buffer, '0'), true);
-    ASSERT_RET(!add_to_buffer(buffer, 'x'), true);
+    ASSERT_RET(!adds_to_buffer(buffer, "0x"), true);
 
     ice_btoa(va_arg(args, unsigned int), str, "0123456789abcdef");
-    for (int i = 0; str[i] ; i++)
-        ASSERT_RET(!add_to_buffer(buffer, str[i]), true);
+    ASSERT_RET(!adds_to_buffer(buffer, str), true);
 
-    return true;
+    return false;
 }

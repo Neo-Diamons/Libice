@@ -12,7 +12,5 @@ bool ice_printf_str(buffer_t *buffer, va_list args)
 {
     char *str = va_arg(args, char *);
 
-    for (int i = 0; str[i] ; i++)
-        ASSERT_RET(!add_to_buffer(buffer, str[i]), true);
-    return false;
+    return adds_to_buffer(buffer, str);
 }

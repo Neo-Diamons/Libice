@@ -10,11 +10,14 @@
 
 bool ice_printf_octal(buffer_t *buffer, va_list args)
 {
+    ui_t nb = va_arg(args, unsigned int);
     char str[100];
 
-    ice_btoa(va_arg(args, unsigned int), str, "01234567");
-    for (int i = 0; str[i] ; i++)
-        ASSERT_RET(!add_to_buffer(buffer, str[i]), true);
+    if ((buffer->flags & FLAG_HASH) && (nb != 0))
+        ASSERT_RET(!adds_to_buffer(buffer, "0"), true);
 
-    return true;
+    ice_btoa(nb, str, "01234567");
+    ASSERT_RET(!adds_to_buffer(buffer, str), true);
+
+    return false;
 }

@@ -10,7 +10,7 @@
 
     #include "ice/printf/printf.h"
 
-const flags_t FLAGS[] = {
+const conversion_t conversion[] = {
     {'d', ice_printf_int},
     {'i', ice_printf_int},
     {'u', ice_printf_uint},
