@@ -11,6 +11,14 @@
     #include "ice/types.h"
 
 /**
+ * @brief Print in the stdout.
+ * @param format that will be printed.
+ * @param ... that will be printed.
+ * @return The len of the str.
+ */
+ull_t ice_printf(const char *format, ...);
+
+/**
  * @brief Print int the stdout.
  * @param str that will be printed.
  * @return The len of the str.

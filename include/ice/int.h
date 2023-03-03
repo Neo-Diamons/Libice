@@ -11,23 +11,41 @@
     #include "ice/types.h"
 
 /**
- * @brief #include "ice/int.h"
- * @param nb The int to get the len.
- * @return Len of the int.
+ * @brief Get the len of a int.
+ * @param nb that will be get.
+ * @return The len of the int.
  */
 uc_t ice_intlen(ll_t nb);
 
 /**
- * @brief #include "ice/int.h"
- * @param nb The int to convert.
- * @param buffer int will be add.
+ * @brief Convert a int to a string.
+ * @param nb that will be converted.
+ * @param buffer that will be filled.
+ * @return The len of the string.
  */
 void ice_itoa(ll_t nb, char *buffer);
 
 /**
- * @brief #include "ice/int.h"
- * @param str The str to convert.
- * @return The int extract from the str.
+ * @brief Convert a unsigned int to a string.
+ * @param nb that will be converted.
+ * @param buffer that will be filled.
+ * @return The len of the string.
+ */
+void ice_utoa(ull_t n, char *buffer);
+
+/**
+ * @brief Convert a int to a string with a base.
+ * @param nb that will be converted.
+ * @param buffer that will be filled.
+ * @param base that will be used.
+ * @return The len of the string.
+ */
+void ice_btoa(ull_t nb, char *buffer, char *base);
+
+/**
+ * @brief Convert a string to a int.
+ * @param str that will be converted.
+ * @return The int.
  */
 ll_t ice_atoi(const char *str);
 

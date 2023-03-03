@@ -16,13 +16,31 @@ DIR			+=	$(addprefix $(DIR_ICE), ./int/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_atoi.c		\
 				ice_itoa.c		\
+				ice_utoa.c		\
+				ice_btoa.c		\
 				ice_intlen.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_ICE), ./output/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_printf.c	\
 				ice_perror.c	\
 				ice_puts.c		\
+				)
+
+DIR			+=	$(addprefix $(lastword $(DIR)), ./printf/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				add_to_buffer.c			\
+				ice_printf_char.c		\
+				ice_printf_str.c		\
+				ice_printf_percent.c	\
+				ice_printf_int.c		\
+				ice_printf_uint.c		\
+				ice_printf_binary.c		\
+				ice_printf_octal.c		\
+				ice_printf_hexa.c		\
+				ice_printf_hexa_upper.c	\
+				ice_printf_ptr.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_ICE), ./string/)
