@@ -20,7 +20,9 @@ bool ice_printf_float(buffer_t *buffer, va_list args)
             ASSERT_RET(!add_to_buffer(buffer, '+'), true);
     }
 
-    ice_ftoa(nb, str, 6);
+    if (buffer->precision == (ull_t)(-1))
+        buffer->precision = 6;
+    ice_ftoa(nb, str, (int)buffer->precision);
     ASSERT_RET(!add_signed_width(buffer, str), true);
 
     return false;

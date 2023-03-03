@@ -5,12 +5,27 @@
 ** ice_printf_str.c
 */
 
+#include <stdlib.h>
+
 #include "ice/macro.h"
+#include "ice/string.h"
 #include "ice/printf/printf.h"
 
 bool ice_printf_str(buffer_t *buffer, va_list args)
 {
     char *str = va_arg(args, char *);
 
-    return add_width(buffer, str);
+    if (IS_NULL(str)) {
+        str = "(null)";
+        buffer->precision = (ull_t)(-1);
+    }
+    if (buffer->precision != (ull_t)(-1))
+        str = ice_strndup(str, buffer->precision);
+
+    ASSERT_RET(IS_NOT_NULL(str), true);
+    ASSERT_RET(!add_width(buffer, str), true);
+
+    if (buffer->precision != (ull_t)(-1))
+        free(str);
+    return false;
 }

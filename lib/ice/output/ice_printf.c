@@ -29,11 +29,18 @@ static void search_conversion(buffer_t *buffer, const char *format,
         if (buffer->flags & FLAG_SPACE && buffer->flags & FLAG_PLUS)
             buffer->flags &= ~FLAG_SPACE;
 
+        buffer->width = 0;
         if ('0' < format[*i] && format[*i] <= '9') {
-            buffer->width = 0;
             for (; '0' <= format[*i] && format[*i] <= '9'; (*i)++)
                 buffer->width = buffer->width * 10 + format[*i] - '0';
-            (*i)--;
+        }
+
+        buffer->precision = -1;
+        if (format[*i] == '.') {
+            buffer->precision = 0;
+            (*i)++;
+            for (; '0' <= format[*i] && format[*i] <= '9'; (*i)++)
+                buffer->precision = buffer->precision * 10 + format[*i] - '0';
         }
 
         for (int k = 0; conversion[k].conversion; k++) {
