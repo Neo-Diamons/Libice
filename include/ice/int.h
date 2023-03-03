@@ -38,9 +38,16 @@ void ice_utoa(ull_t n, char *buffer);
  * @param nb that will be converted.
  * @param buffer that will be filled.
  * @param base that will be used.
- * @return The len of the string.
  */
 void ice_btoa(ull_t nb, char *buffer, char *base);
+
+/**
+ * @brief Convert a float to a string.
+ * @param nb that will be converted.
+ * @param str that will be filled.
+ * @param precision of the float.
+ */
+void ice_ftoa(double nb, char *str, int precision);
 
 /**
  * @brief Convert a string to a int.

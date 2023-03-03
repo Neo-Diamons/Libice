@@ -23,6 +23,7 @@ const flags_t FLAGS[] = {
     {'b', ice_printf_binary},
     {'%', ice_printf_percent},
     {'n', ice_printf_len},
+    {'f', ice_printf_float},
     {'\0', NULL}
 };
 

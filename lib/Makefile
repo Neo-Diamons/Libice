@@ -18,6 +18,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_itoa.c		\
 				ice_utoa.c		\
 				ice_btoa.c		\
+				ice_ftoa.c		\
 				ice_intlen.c	\
 				)
 
@@ -42,6 +43,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_printf_hexa_upper.c	\
 				ice_printf_ptr.c		\
 				ice_printf_len.c		\
+				ice_printf_float.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_ICE), ./string/)
