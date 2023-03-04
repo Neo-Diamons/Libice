@@ -23,11 +23,11 @@ ull_t ice_asprintf(char **restrict str, const char *restrict format, ...)
     buffer.left = 1024;
 
     va_start(args, format);
-    handle_format(&buffer, format, args);
-    add_buffer(&buffer, '\0');
+    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));
+    ASSERT_RET(!add_buffer(&buffer, '\0'), (ull_t)(-1));
     va_end(args);
 
-    *str = buffer.len != (ull_t)(-1) ?  buffer.str : NULL;
+    *str = buffer.len != (ull_t)(-1) ? buffer.str : NULL;
 
     return buffer.len;
 }

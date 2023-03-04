@@ -7,7 +7,7 @@
 
 #include "ice/printf/private.h"
 
-void handle_format(buffer_t *buffer, const char *format, va_list args)
+bool handle_format(buffer_t *buffer, const char *format, va_list args)
 {
     ull_t i = 0;
     ull_t *p = &i;
@@ -18,7 +18,9 @@ void handle_format(buffer_t *buffer, const char *format, va_list args)
             get_flags(buffer, format, p);
             get_width(buffer, format, p, args);
             get_precision(buffer, format, p, args);
-            get_conversion(buffer, format[i], args);
+            ASSERT_RET(!get_conversion(buffer, format[i], args), true);
         } else
-            add_buffer(buffer, format[i]);
+            ASSERT_RET(!add_buffer(buffer, format[i]), true);
+
+    return false;
 }

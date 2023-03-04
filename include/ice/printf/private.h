@@ -14,7 +14,7 @@
     #include "ice/macro.h"
     #include "ice/printf/struct.h"
 
-void handle_format(buffer_t *buffer, const char *format, va_list args);
+bool handle_format(buffer_t *buffer, const char *format, va_list args);
 
 void get_flags(buffer_t *buffer, const char *format, ull_t *i);
 
@@ -23,7 +23,7 @@ void get_width(buffer_t *buffer, const char *format, ull_t *i, va_list args);
 void get_precision(buffer_t *buffer, const char *format,
     ull_t *i, va_list args);
 
-void get_conversion(buffer_t *buffer, char c, va_list args);
+bool get_conversion(buffer_t *buffer, char c, va_list args);
 
 bool add_buffer(buffer_t *buffer, char c);
 

@@ -29,7 +29,7 @@ typedef struct buffer_s {
 
 typedef struct conversion_s {
     char conversion;
-    bool (*func)(buffer_t*, va_list);
+    bool (*func)(buffer_t *, va_list);
 } conversion_t;
 
 #endif /* !LIBICE_STRUCT_H */

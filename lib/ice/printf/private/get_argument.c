@@ -65,12 +65,13 @@ void get_precision(buffer_t *buffer, const char *format, ull_t *i, va_list args)
         buffer->prec = buffer->prec * 10 + format[*i] - '0';
 }
 
-void get_conversion(buffer_t *buffer, char c, va_list args)
+bool get_conversion(buffer_t *buffer, char c, va_list args)
 {
     for (int k = 0; conversion[k].conversion; k++) {
         if (c != conversion[k].conversion) continue;
 
-        conversion[k].func(buffer, args);
-        return;
+        return conversion[k].func(buffer, args);
     }
+
+    return false;
 }

@@ -18,5 +18,5 @@ bool ice_printf_binary(buffer_t *buffer, va_list args)
     ice_btoa(va_arg(args, unsigned int), str, "01");
     ASSERT_RET(!add_unsigned_width(buffer, str), true);
 
-    return true;
+    return false;
 }

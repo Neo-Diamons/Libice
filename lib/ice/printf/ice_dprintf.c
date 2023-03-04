@@ -21,7 +21,7 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...)
     buffer.left = 1024;
 
     va_start(args, format);
-    handle_format(&buffer, format, args);
+    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));
     va_end(args);
 
     len = write(fd, buffer.str, buffer.len);
