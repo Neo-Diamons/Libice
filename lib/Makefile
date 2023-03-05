@@ -22,6 +22,15 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_intlen.c	\
 				)
 
+DIR			+=	$(addprefix $(DIR_ICE), ./memory/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_calloc.c	\
+				ice_memchr.c	\
+				ice_memcmp.c	\
+				ice_memcpy.c	\
+				ice_memset.c	\
+				)
+
 DIR			+=	$(addprefix $(DIR_ICE), ./output/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_perror.c	\
@@ -93,6 +102,7 @@ SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				test_output.c		\
 				test_printf.c		\
 				test_string.c		\
+				test_memory.c		\
 				test_list.c			\
 				)
 
