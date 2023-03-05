@@ -36,6 +36,17 @@ bool add_buffer(buffer_t *buffer, char c)
 bool adds_buffer(buffer_t *buffer, char *str)
 {
     for (ull_t i = 0; str[i] ; i++)
-        ASSERT_RET(!add_buffer(buffer, str[i]), true);
+        ASSERT_RET(!buffer->add(buffer, str[i]), true);
+    return false;
+}
+
+bool addn_buffer(buffer_t *buffer, char c)
+{
+    if (buffer->len >= buffer->left) return false;
+
+    buffer->str[buffer->len] = c;
+    buffer->len++;
+    buffer->left--;
+
     return false;
 }

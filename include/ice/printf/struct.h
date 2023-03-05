@@ -25,6 +25,7 @@ typedef struct buffer_s {
     uc_t flags;
     ull_t width;
     ull_t prec;
+    bool (*add)(struct buffer_s *, char);
 } buffer_t;
 
 typedef struct conversion_s {

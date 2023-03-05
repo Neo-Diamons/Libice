@@ -41,6 +41,8 @@ DIR			+=	$(addprefix $(DIR_ICE), ./printf/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_printf.c	\
 				ice_dprintf.c	\
+				ice_sprintf.c	\
+				ice_snprintf.c	\
 				ice_asprintf.c	\
 				)
 

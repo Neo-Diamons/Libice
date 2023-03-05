@@ -510,3 +510,45 @@ Test(ice_printf, format_zero, .init = redirect_all_std)
     cr_assert_stdout_eq_str(str, "00000042");
     cr_assert_eq(ret, len, "ice_printf() returned %lli instead of %lli", ret, len);
 }
+
+Test(ice_asprintf, format_null, .init = redirect_all_std)
+{
+    char *str = NULL;
+    const char *expected = "42";
+    ull_t len = ice_strlen(expected);
+    ull_t ret = ice_asprintf(&str, "%d", 42);
+
+    cr_assert_str_eq(str, expected, "ice_asprintf() returned %s instead of %s", str, expected);
+    cr_assert_eq(ret, len, "ice_asprintf() returned %lli instead of %lli", ret, len);
+}
+
+Test(ice_asprintf, format_string_null, .init = redirect_all_std)
+{
+    char *str = NULL;
+    ull_t ret = ice_asprintf(&str, NULL);
+
+    cr_assert_null(str, "ice_asprintf() returned %s instead of NULL", str);
+    cr_assert_eq(ret, (ull_t)(-1), "ice_asprintf() returned %lli instead of -1", ret);
+}
+
+Test(ice_sprintf, format_int, .init = redirect_all_std)
+{
+    char str[100];
+    const char *expected = "42";
+    ull_t len = ice_strlen(expected);
+    ull_t ret = ice_sprintf(str, "%d", 42);
+
+    cr_assert_str_eq(str, expected, "ice_sprintf() returned %s instead of %s", str, expected);
+    cr_assert_eq(ret, len, "ice_sprintf() returned %lli instead of %lli", ret, len);
+}
+
+Test(ice_snprintf, format_int, .init = redirect_all_std)
+{
+    char str[100];
+    const char *expected = "42";
+    ull_t len = ice_strlen(expected);
+    ull_t ret = ice_snprintf(str, 100, "%d", 42);
+
+    cr_assert_str_eq(str, expected, "ice_snprintf() returned %s instead of %s", str, expected);
+    cr_assert_eq(ret, len, "ice_snprintf() returned %lli instead of %lli", ret, len);
+}

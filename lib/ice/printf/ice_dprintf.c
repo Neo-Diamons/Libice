@@ -19,6 +19,7 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...)
     ASSERT_RET(IS_NOT_NULL(format), (ull_t)(-1));
     buffer.str = malloc(sizeof(char) * 1024);
     buffer.left = 1024;
+    buffer.add = add_buffer;
 
     va_start(args, format);
     ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));

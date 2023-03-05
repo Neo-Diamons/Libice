@@ -20,7 +20,7 @@ bool handle_format(buffer_t *buffer, const char *format, va_list args)
             get_precision(buffer, format, p, args);
             ASSERT_RET(!get_conversion(buffer, format[i], args), true);
         } else
-            ASSERT_RET(!add_buffer(buffer, format[i]), true);
+            ASSERT_RET(!buffer->add(buffer, format[i]), true);
 
     return false;
 }

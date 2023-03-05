@@ -27,6 +27,8 @@ bool get_conversion(buffer_t *buffer, char c, va_list args);
 
 bool add_buffer(buffer_t *buffer, char c);
 
+bool addn_buffer(buffer_t *buffer, char c);
+
 bool adds_buffer(buffer_t *buffer, char *str);
 
 bool add_width(buffer_t *buffer, char *str);
