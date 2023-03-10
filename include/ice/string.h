@@ -117,4 +117,12 @@ char **ice_strsplit(char *str, char *delim);
  */
 char *ice_strstr(const char *haystack, const char *needle);
 
+/**
+ * @brief Search the c in the str.
+ * @param str that will be searched.
+ * @param c that will be searched.
+ * @return Pointer to the first occurence of the c in the str.
+ */
+char *ice_strchr(const char *str, char c);
+
 #endif /* !ICE_STRING_H */

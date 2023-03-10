@@ -260,3 +260,15 @@ Test(ice_strstr, empty) {
 
     cr_assert_null(str, "ice_strstr() returned %s instead of NULL", str);
 }
+
+Test(ice_strchr, basic) {
+    char *str = ice_strchr("Hello World!", 'W');
+
+    cr_assert_str_eq(str, "World!", "ice_strchr() returned %s instead of World!", str);
+}
+
+Test(ice_strchr, empty) {
+    char *str = ice_strchr("", 'W');
+
+    cr_assert_null(str, "ice_strchr() returned %s instead of NULL", str);
+}

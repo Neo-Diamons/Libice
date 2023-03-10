@@ -5,9 +5,9 @@
 ** ice_strstr.c
 */
 
-
 #include <stddef.h>
-#include "ice/string.h"
+
+#include "ice/types.h"
 
 char *ice_strstr(const char *haystack, const char *needle)
 {
@@ -18,7 +18,6 @@ char *ice_strstr(const char *haystack, const char *needle)
             ({
                 return ((char *) haystack + i - j + 1);
             }) : (0);
-
         } else
             j = 0;
     }
