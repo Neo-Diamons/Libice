@@ -108,4 +108,13 @@ void ice_strnrev(char *str, ull_t n);
  */
 char **ice_strsplit(char *str, char *delim);
 
+/**
+ * @brief Search the needle in the haystack.
+ * @param haystack that will be searched.
+ * @param needle that will be searched.
+ * @return Pointer to the first occurence of the needle in the haystack.
+ * @return NULL if the needle is not found.
+ */
+char *ice_strstr(const char *haystack, const char *needle);
+
 #endif /* !ICE_STRING_H */

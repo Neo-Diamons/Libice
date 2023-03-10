@@ -81,6 +81,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_strrev.c	\
 				ice_strswap.c	\
 				ice_strsplit.c	\
+				ice_strstr.c	\
 				)
 
 DIR			+=	./list/
@@ -143,13 +144,11 @@ $(UNIT_TEST):		fclean
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
 	|| printf "\033[31m[ERROR]\033[0m %s\n" $@
 
-test_run:			$(UNIT_TEST)
+tests_run:			$(UNIT_TEST)
 	@./$(UNIT_TEST)
-
-test_coverage:		test_run
 	gcovr --exclude tests/
 
-test_clean:
+tests_clean:
 	@[ -f $(UNIT_TEST) ]\
 	&& $(RM) $(UNIT_TEST)\
 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(UNIT_TEST)\
@@ -166,7 +165,7 @@ clean:
 	&& $(RM) $(ROOT_OBJ)\
 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(ROOT_OBJ) || true
 
-fclean:				clean test_clean
+fclean:				clean tests_clean
 	@[ -f $(NAME) ]\
  	&& $(RM) $(NAME)\
  	&& printf "\033[31m[DELETED]\033[0m %s\n" $(NAME) || true

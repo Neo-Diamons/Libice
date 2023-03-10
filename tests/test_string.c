@@ -62,25 +62,25 @@ Test(ice_strncat, basic) {
 }
 
 Test(ice_strcmp, basic) {
-    int res = ice_strcmp("Hello World!", "Hello World!");
+    char res = ice_strcmp("Hello World!", "Hello World!");
 
     cr_assert_eq(res, 0, "ice_strcmp() returned %i instead of 0", res);
 }
 
 Test(ice_strcmp, different_higher) {
-    int res = ice_strcmp("Hello World!", "Hello World");
+    char res = ice_strcmp("Hello World!", "Hello World");
 
     cr_assert_eq(res, 33, "ice_strcmp() returned %i instead of 33", res);
 }
 
 Test(ice_strcmp, different_lower) {
-    int res = ice_strcmp("Hello World", "Hello World!");
+    char res = ice_strcmp("Hello World", "Hello World!");
 
     cr_assert_eq(res, -33, "ice_strcmp() returned %i instead of -33", res);
 }
 
 Test(ice_strcmp, different_lower_and_same_size) {
-    int res = ice_strcmp("Hello World!", "Hello World?");
+    char res = ice_strcmp("Hello World!", "Hello World?");
 
     cr_assert_eq(res, -30, "ice_strcmp() returned %i instead of -30", res);
 }
@@ -247,4 +247,16 @@ Test(ice_strsplit, empty) {
     cr_assert_str_eq(str[0], "", "ice_strsplit() returned %s instead of \"\"", str[0]);
 
     free(str);
+}
+
+Test(ice_strstr, basic) {
+    char *str = ice_strstr("Hello World!", "World");
+
+    cr_assert_str_eq(str, "World!", "ice_strstr() returned %s instead of World!", str);
+}
+
+Test(ice_strstr, empty) {
+    char *str = ice_strstr("", "World");
+
+    cr_assert_null(str, "ice_strstr() returned %s instead of NULL", str);
 }
