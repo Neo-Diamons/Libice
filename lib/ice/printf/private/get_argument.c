@@ -9,6 +9,7 @@
 
 void get_flags(buffer_t *buffer, const char *format, ull_t *i)
 {
+    buffer->flags = 0;
     for (; format[*i] ; (*i)++) {
         switch (format[*i]) {
             case '#': buffer->flags |= FLAG_HASH; continue;
