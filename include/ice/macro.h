@@ -12,9 +12,6 @@
 
     #define UNUSED __attribute__((unused))
 
-    #define IS_NULL(a) ((a) == NULL)
-    #define IS_NOT_NULL(a) ((a) != NULL)
-
     #define IS_LOWER(a) ((a) >= 'a' && (a) <= 'z')
     #define IS_UPPER(a) ((a) >= 'A' && (a) <= 'Z')
 
