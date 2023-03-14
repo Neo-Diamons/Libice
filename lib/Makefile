@@ -12,6 +12,12 @@ SRC			:=
 
 DIR_ICE		:=	./ice/
 
+DIR			+=	$(addprefix $(DIR_ICE), ./array/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				ice_array_len.c	\
+				ice_free_array.c\
+				)
+
 DIR			+=	$(addprefix $(DIR_ICE), ./int/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				ice_atoi.c		\
@@ -102,6 +108,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR_TEST	:=	../tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
+				test_array.c		\
 				test_int.c			\
 				test_output.c		\
 				test_printf.c		\
