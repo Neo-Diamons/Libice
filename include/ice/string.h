@@ -125,4 +125,6 @@ char *ice_strstr(const char *haystack, const char *needle);
  */
 char *ice_strchr(const char *str, char c);
 
+void ice_strtrim(char *str);
+
 #endif /* !ICE_STRING_H */

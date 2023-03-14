@@ -272,3 +272,17 @@ Test(ice_strchr, empty) {
 
     cr_assert_null(str, "ice_strchr() returned %s instead of NULL", str);
 }
+
+Test(ice_strtrim, basic) {
+    char str[] = "   \t Hello World! \t  ";
+
+    ice_strtrim(str);
+    cr_assert_str_eq(str, "Hello World!");
+}
+
+Test(ice_strtrim, empty) {
+    char str[] = "";
+
+    ice_strtrim(str);
+    cr_assert_str_eq(str, "");
+}
