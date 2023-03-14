@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2022
 ** libice/output
 ** File description:
-** ice_perror.c
+** ice_dputs.c
 */
 
 #include <unistd.h>
 
 #include "ice/string.h"
 
-ull_t ice_perror(const char *str)
+ull_t ice_dputs(int fd, const char *str)
 {
-    return write(2, str, ice_strlen(str));
+    return write(fd, str, ice_strlen(str));
 }

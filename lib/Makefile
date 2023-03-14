@@ -33,8 +33,8 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_ICE), ./output/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				ice_perror.c	\
 				ice_puts.c		\
+				ice_dputs.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_ICE), ./printf/)
@@ -114,6 +114,7 @@ ROOT_OBJ	:=	./.obj/
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
+TEST_DIR	:=	./../tests/.bin/
 UNIT_TEST	:=	./unit_test
 
 RM			:=	rm -rf
@@ -141,22 +142,19 @@ $(NAME):			$(OBJ)
 
 $(UNIT_TEST):		CFLAGS += -lcriterion --coverage
 $(UNIT_TEST):		fclean
-	@$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $@\
+	mkdir -p $(TEST_DIR)
+	@$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $(TEST_DIR)$@\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
 	|| printf "\033[31m[ERROR]\033[0m %s\n" $@
 
 tests_run:			$(UNIT_TEST)
-	@./$(UNIT_TEST)
-	gcovr --exclude tests/
+	@./$(TEST_DIR)$(UNIT_TEST)
+	gcovr $(TEST_DIR) --exclude tests/
 
 tests_clean:
-	@[ -f $(UNIT_TEST) ]\
-	&& $(RM) $(UNIT_TEST)\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" $(UNIT_TEST)\
-	&& $(RM) *.gcda\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" *.gcda\
-	&& $(RM) *.gcno\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" *.gcno || true
+	@[ -d $(TEST_DIR) ]\
+	&& $(RM) $(TEST_DIR)\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" $(TEST_DIR) || true
 
 debug:				CFLAGS += -g
 debug:				re

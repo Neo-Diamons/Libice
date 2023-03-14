@@ -8,6 +8,7 @@
 #include <malloc.h>
 #include <unistd.h>
 
+#include "ice/assert.h"
 #include "ice/printf/private.h"
 
 ull_t ice_asprintf(char **restrict str, const char *restrict format, ...)
@@ -15,7 +16,7 @@ ull_t ice_asprintf(char **restrict str, const char *restrict format, ...)
     va_list args;
     buffer_t buffer = {0};
 
-    if (IS_NULL(str) || IS_NULL(format)) {
+    if (str == NULL || format == NULL) {
         *str = NULL;
         return (ull_t) (-1);
     }
@@ -24,7 +25,7 @@ ull_t ice_asprintf(char **restrict str, const char *restrict format, ...)
     buffer.add = add_buffer;
 
     va_start(args, format);
-    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));
+    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1))
     ASSERT_RET(!buffer.add(&buffer, '\0'), (ull_t)(-1));
     va_end(args);
 

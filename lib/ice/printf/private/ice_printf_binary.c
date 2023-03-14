@@ -6,6 +6,7 @@
 */
 
 #include "ice/int.h"
+#include "ice/assert.h"
 #include "ice/printf/private.h"
 
 bool ice_printf_binary(buffer_t *buffer, va_list args)

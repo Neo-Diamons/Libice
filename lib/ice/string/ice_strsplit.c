@@ -7,8 +7,8 @@
 
 #include <stdlib.h>
 
-#include "ice/macro.h"
 #include "ice/string.h"
+#include "ice/assert.h"
 
 static ull_t ice_strsplit_count(char *str, char *delim, ull_t delim_len)
 {
@@ -42,11 +42,11 @@ char **ice_strsplit(char *str, char *delim)
     ull_t delim_len = ice_strlen(delim);
     char **tab = malloc(sizeof(char *) * (split_count + 1));
 
-    ASSERT_RET(IS_NOT_NULL(tab), NULL);
+    ASSERT_RET(tab, NULL)
     for (ull_t i = 0 ; i < split_count ; i++) {
         len = ice_strsplit_len(str, delim, delim_len);
         tab[i] = malloc(sizeof(char) * (len + 1));
-        ASSERT_RET(IS_NOT_NULL(tab[i]), NULL);
+        ASSERT_RET(tab[i], NULL)
         ice_strncpy(tab[i], str, len);
         str += len + delim_len;
     }

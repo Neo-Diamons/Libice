@@ -7,14 +7,14 @@
 
 #include <malloc.h>
 
-#include "ice/macro.h"
+#include "ice/assert.h"
 #include "ice/printf/struct.h"
 
 static bool realloc_buffer(buffer_t *buffer)
 {
     char *new_str = malloc(sizeof(char) * (buffer->len + 1024));
 
-    ASSERT_RET(IS_NOT_NULL(new_str), true);
+    ASSERT_RET(new_str, true);
     buffer->left = 1024;
     for (ull_t i = 0 ; i < buffer->len ; i++)
         new_str[i] = buffer->str[i];

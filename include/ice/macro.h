@@ -12,11 +12,6 @@
 
     #define UNUSED __attribute__((unused))
 
-    #define ASSERT(a) if (!(a)) return
-    #define ASSERT_RET(a, b) if (!(a)) return (b)
-
-    #define IF_RET(a, b) if (a) return (b)
-
     #define IS_NULL(a) ((a) == NULL)
     #define IS_NOT_NULL(a) ((a) != NULL)
 

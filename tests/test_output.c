@@ -18,7 +18,7 @@ Test(ice_puts, stdout, .init = redirect_all_std) {
 
 Test(ice_perror, stderr, .init = redirect_all_std) {
     char *str = "Hello World!";
-    ice_perror(str);
+    ice_dputs(2, str);
 
     cr_assert_stderr_eq_str(str, "Hello World!");
 }

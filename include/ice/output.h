@@ -18,10 +18,11 @@
 ull_t ice_puts(const char *str);
 
 /**
- * @brief Print in the stderr.
+ * @brief Print int the fd.
+ * @param fd that will be printed.
  * @param str that will be printed.
  * @return The len of the str.
  */
-ull_t ice_perror(const char *str);
+ull_t ice_dputs(int fd, const char *str);
 
 #endif /* !ICE_OUTPUT_H */
