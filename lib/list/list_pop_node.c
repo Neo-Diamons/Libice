@@ -19,8 +19,6 @@ list_node_t *list_pop_node(list_t *list, list_node_t *node)
         list->head = node->next;
     if (node == list->tail)
         list->tail = node->prev;
-
     list->size--;
-
     return node;
 }

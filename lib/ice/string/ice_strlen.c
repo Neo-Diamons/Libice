@@ -12,7 +12,6 @@ ull_t ice_strlen(const char *str)
     ull_t i = 0;
 
     ASSERT_RET(str, 0);
-    for (; str[i] ; i++);
-
+    for (; str[i]; i++);
     return i;
 }

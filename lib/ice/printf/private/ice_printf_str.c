@@ -22,10 +22,8 @@ bool ice_printf_str(buffer_t *buffer, va_list args)
     }
     if (buffer->prec != (ull_t)(-1))
         str = ice_strndup(str, buffer->prec);
-
-    ASSERT_RET(IS_NOT_NULL(str), true)
-    ASSERT_RET(!add_width(buffer, str), true)
-
+    ASSERT_RET(IS_NOT_NULL(str), true);
+    ASSERT_RET(!add_width(buffer, str), true);
     if (buffer->prec != (ull_t)(-1))
         free(str);
     return false;

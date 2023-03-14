@@ -16,15 +16,11 @@ void *list_remove(list_t *list, ull_t index)
 
     if ((list->size <= index) || (list == NULL))
         return NULL;
-
     node = list->head;
     for (ull_t i = 0; i < index; i++)
         node = node->next;
-
     list_pop_node(list, node);
-
     value = node->value;
     free(node);
-
     return value;
 }

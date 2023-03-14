@@ -15,8 +15,7 @@ uc_t ice_intlen(ll_t nb)
         nb = -nb;
         i++;
     }
-    for (; nb >= 10 ; i++)
+    for (; nb >= 10; i++)
         nb /= 10;
-
     return ++i;
 }

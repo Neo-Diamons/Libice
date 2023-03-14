@@ -11,7 +11,7 @@
 
 void list_destroy(list_t *list)
 {
-    for (list_node_t *node = list->head ; node ; node = node->next)
+    for (list_node_t *node = list->head; node; node = node->next)
         free(node->prev);
     free(list->tail);
     free(list);

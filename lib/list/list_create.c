@@ -15,10 +15,8 @@ list_t *list_create(void)
 
     if (list == NULL)
         return NULL;
-
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;
-
     return list;
 }

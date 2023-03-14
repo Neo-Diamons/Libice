@@ -16,13 +16,11 @@ bool ice_printf_int(buffer_t *buffer, va_list args)
 
     if (nb >= 0) {
         if (buffer->flags & FLAG_SPACE)
-            ASSERT_RET(!buffer->add(buffer, ' '), true)
+            ASSERT_RET(!buffer->add(buffer, ' '), true);
         if (buffer->flags & FLAG_PLUS)
-            ASSERT_RET(!buffer->add(buffer, '+'), true)
+            ASSERT_RET(!buffer->add(buffer, '+'), true);
     }
-
     ice_itoa(nb, str);
-    ASSERT_RET(!add_signed_width(buffer, str), true)
-
+    ASSERT_RET(!add_signed_width(buffer, str), true);
     return false;
 }

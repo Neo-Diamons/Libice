@@ -16,7 +16,7 @@ static bool realloc_buffer(buffer_t *buffer)
 
     ASSERT_RET(new_str, true);
     buffer->left = 1024;
-    for (ull_t i = 0 ; i < buffer->len ; i++)
+    for (ull_t i = 0; i < buffer->len; i++)
         new_str[i] = buffer->str[i];
     free(buffer->str);
     buffer->str = new_str;
@@ -35,18 +35,17 @@ bool add_buffer(buffer_t *buffer, char c)
 
 bool adds_buffer(buffer_t *buffer, char *str)
 {
-    for (ull_t i = 0; str[i] ; i++)
+    for (ull_t i = 0; str[i]; i++)
         ASSERT_RET(!buffer->add(buffer, str[i]), true);
     return false;
 }
 
 bool addn_buffer(buffer_t *buffer, char c)
 {
-    if (buffer->len >= buffer->left) return false;
-
+    if (buffer->len >= buffer->left)
+        return false;
     buffer->str[buffer->len] = c;
     buffer->len++;
     buffer->left--;
-
     return false;
 }

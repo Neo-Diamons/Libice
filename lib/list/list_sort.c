@@ -27,7 +27,6 @@ void list_sort(list_t *list, ull_t (*cmp)(void *, void *))
 {
     if (list->size == 0)
         return;
-
     for (list_node_t *node = list->head->next ; node ; node = node->next) {
         if (cmp(node->prev->value, node->value) > 0) {
             swap_node(node->prev, node);

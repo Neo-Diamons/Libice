@@ -18,7 +18,7 @@ void ice_itoa(ll_t nb, char *buffer)
         nb = -nb;
         sign = 1;
     }
-    for (; nb >= 10 ; i++) {
+    for (; nb >= 10; i++) {
         buffer[i] = (char)(48 + nb % 10);
         nb /= 10;
     }
@@ -27,7 +27,6 @@ void ice_itoa(ll_t nb, char *buffer)
         buffer[i + 1] = '-';
         i++;
     }
-
     buffer[i + 1] = '\0';
     ice_strnrev(buffer, i);
 }

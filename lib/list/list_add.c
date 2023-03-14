@@ -18,7 +18,6 @@ static void add_node(list_t *list, list_node_t *node)
         list->tail = node;
         return;
     }
-
     list->tail->next = node;
     node->prev = list->tail;
     list->tail = node;
@@ -30,12 +29,9 @@ bool list_add(list_t *list, void *value)
 
     if ((list == NULL) || (value == NULL) || (node == NULL))
         return true;
-
     node->value = value;
     node->next = NULL;
     node->prev = NULL;
-
     add_node(list, node);
-
     return false;
 }

@@ -11,7 +11,7 @@ void ice_utoa(ull_t n, char *buffer)
 {
     ull_t i = 0;
 
-    for (; n ; i++, n /= 10)
+    for (; n; i++, n /= 10)
         buffer[i] = (char)(n % 10 + '0');
     buffer[i] = '\0';
     ice_strnrev(buffer, i - 1);

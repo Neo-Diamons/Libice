@@ -11,9 +11,8 @@
 
 char *ice_strchr(const char *str, char c)
 {
-    for (ull_t i = 0 ; str[i] ; i++)
+    for (ull_t i = 0; str[i]; i++)
         if (str[i] == c)
             return ((char *) str + i);
-
     return NULL;
 }

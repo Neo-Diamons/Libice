@@ -17,6 +17,5 @@ char *ice_strdup(const char *str)
 
     ASSERT_RET(new && str, NULL);
     ice_strcpy(new, str);
-
     return new;
 }

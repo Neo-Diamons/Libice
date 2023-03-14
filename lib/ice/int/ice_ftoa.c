@@ -16,11 +16,11 @@ void ice_ftoa(double nb, char *str, int precision)
         nb *= -1;
     }
     ice_itoa((ll_t)nb, str + i);
-    for (; str[i] ; i++);
+    for (; str[i]; i++);
     if (precision <= 0) return;
     str[i++] = '.';
     nb -= (double)((ll_t)nb);
-    for (; precision-- ; ) {
+    for (; precision; precision--) {
         nb *= 10;
         str[i++] = (char)((ll_t)nb % 10 + 48);
     }
