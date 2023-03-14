@@ -4,9 +4,6 @@
 .obj
 doxygen
 
-# Files
-print.c
-
 # Binaries
 unit_test
 a.out
