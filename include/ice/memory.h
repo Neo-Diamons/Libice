@@ -12,6 +12,15 @@
 
 /**
  * @brief Allocate n bytes of memory
+ * @param size The size of the memory to allocate
+ * @return A pointer to the allocated memory
+ * @note The allocated memory is not initialized
+ * @note If size is 0, a NULL pointer is returned
+ */
+void *ice_realloc(void *ptr, ull_t size);
+
+/**
+ * @brief Allocate n bytes of memory
  * @param nmemb The number of elements
  * @param size The size of each element
  * @return A pointer to the allocated memory

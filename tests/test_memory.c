@@ -88,3 +88,18 @@ Test(ice_memcpy, basic)
     free(str1);
     free(str2);
 }
+
+Test(ice_realloc, basic)
+{
+    char *str = ice_calloc(10, sizeof(char));
+
+    cr_assert_not_null(str);
+    ice_memset(str, 'a', 10);
+    str = ice_realloc(str, 20);
+    cr_assert_not_null(str);
+    for (int i = 0 ; i < 10 ; i++)
+        cr_assert_eq(str[i], 'a');
+    for (int i = 10 ; i < 20 ; i++)
+        cr_assert_eq(str[i], 0);
+    free(str);
+}
