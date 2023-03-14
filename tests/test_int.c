@@ -102,3 +102,51 @@ Test(ice_itoa, min_long_long_to_array) {
 
     cr_assert_str_eq(buffer, "-9223372036854775807", "Min long long should be handled, get %s", buffer);
 }
+
+Test(ice_strtol, digit_to_long) {
+    char *endptr;
+    long result = ice_strtol("7", &endptr);
+
+    cr_assert_eq(result, 7, "Digit should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "", "Endptr should be empty, get %s", endptr);
+}
+
+Test(ice_strtol, zero_to_long) {
+    char *endptr;
+    long result = ice_strtol("0", &endptr);
+
+    cr_assert_eq(result, 0, "Zero should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "", "Endptr should be empty, get %s", endptr);
+}
+
+Test(ice_strtol, negative_digit_to_long) {
+    char *endptr;
+    long result = ice_strtol("-3", &endptr);
+
+    cr_assert_eq(result, -3, "Negative digit should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "", "Endptr should be empty, get %s", endptr);
+}
+
+Test(ice_strtol, max_long_long_to_long) {
+    char *endptr;
+    long result = ice_strtol("9223372036854775807", &endptr);
+
+    cr_assert_eq(result, 9223372036854775807, "Max long long should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "", "Endptr should be empty, get %s", endptr);
+}
+
+Test(ice_strtol, min_long_long_to_long) {
+    char *endptr;
+    long result = ice_strtol("-9223372036854775807", &endptr);
+
+    cr_assert_eq(result, -9223372036854775807, "Min long long should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "", "Endptr should be empty, get %s", endptr);
+}
+
+Test(ice_strtol, digit_to_long_with_endptr) {
+    char *endptr;
+    long result = ice_strtol("7abc", &endptr);
+
+    cr_assert_eq(result, 7, "Digit should be handled, get %ld", result);
+    cr_assert_str_eq(endptr, "abc", "Endptr should be empty, get %s", endptr);
+}

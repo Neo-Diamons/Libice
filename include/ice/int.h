@@ -56,4 +56,12 @@ void ice_ftoa(double nb, char *str, int precision);
  */
 ll_t ice_atoi(const char *str);
 
+/**
+ * @brief Convert a string to a int.
+ * @param str that will be converted.
+ * @param endptr next character in str after the numerical value.
+ * @return The int.
+ */
+ll_t ice_strtol(const char *str, char **endptr);
+
 #endif /* !ICE_INT_H */
