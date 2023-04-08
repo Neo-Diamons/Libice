@@ -16,7 +16,7 @@
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_printf(const char *restrict format, ...);
+ssize_t ice_printf(const char *restrict format, ...);
 
 /**
  * @brief Print in the fd.
@@ -25,7 +25,7 @@ ull_t ice_printf(const char *restrict format, ...);
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_dprintf(int fd, const char *restrict format, ...);
+ssize_t ice_dprintf(int fd, const char *restrict format, ...);
 
 /**
  * @brief Print in the str.
@@ -34,7 +34,7 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...);
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_sprintf(char *str, const char *format, ...);
+ssize_t ice_sprintf(char *str, const char *format, ...);
 
 /**
  * @brief Print in the str.
@@ -44,7 +44,7 @@ ull_t ice_sprintf(char *str, const char *format, ...);
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_snprintf(char *str, ull_t n, const char *format, ...);
+ssize_t ice_snprintf(char *str, ull_t n, const char *format, ...);
 
 /**
  * @brief Print in the str.
@@ -53,6 +53,6 @@ ull_t ice_snprintf(char *str, ull_t n, const char *format, ...);
  * @param ... that will be printed.
  * @return The len of the str.
  */
-ull_t ice_asprintf(char **restrict str, const char *restrict format, ...);
+ssize_t ice_asprintf(char **restrict str, const char *restrict format, ...);
 
 #endif /* !LIBICE_PRINTF_H */

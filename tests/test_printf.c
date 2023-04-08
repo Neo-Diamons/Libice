@@ -35,12 +35,12 @@ Test(ice_dprintf, basic, .init = redirect_all_std)
 Test(ice_asprintf, basic)
 {
     const char *str = "Hello World!";
-    ull_t len = ice_strlen(str);
+    size_t len = ice_strlen(str);
     char *ret = NULL;
 
     ice_asprintf(&ret, "Hello World!");
     cr_assert_str_eq(str, "Hello World!");
-    cr_assert_eq(ice_strlen(ret), len, "ice_asprintf() returned %lli instead of %lli", ice_strlen(ret), len);
+    cr_assert_eq(ice_strlen(ret), len, "ice_asprintf() returned %zu instead of %zu", ice_strlen(ret), len);
     free(ret);
 }
 
@@ -48,7 +48,7 @@ Test(ice_printf, null, .init = redirect_all_std)
 {
     ull_t ret = ice_printf(NULL);
 
-    cr_assert_eq(ret, (ull_t)(-1), "ice_printf() returned %lli instead of -1", ret);
+    cr_assert_eq(ret, -1, "ice_printf() returned %lli instead of -1", ret);
 }
 
 Test(ice_printf, empty, .init = redirect_all_std)
@@ -528,7 +528,7 @@ Test(ice_asprintf, format_string_null, .init = redirect_all_std)
     ull_t ret = ice_asprintf(&str, NULL);
 
     cr_assert_null(str, "ice_asprintf() returned %s instead of NULL", str);
-    cr_assert_eq(ret, (ull_t)(-1), "ice_asprintf() returned %lli instead of -1", ret);
+    cr_assert_eq(ret, -1, "ice_asprintf() returned %lli instead of -1", ret);
 }
 
 Test(ice_sprintf, format_int, .init = redirect_all_std)

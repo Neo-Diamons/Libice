@@ -17,7 +17,7 @@ bool ice_printf_float(buffer_t *buffer, va_list args)
         && ((buffer->flags & FLAG_SPACE && buffer->add(buffer, ' '))
         || (buffer->flags & FLAG_PLUS && buffer->add(buffer, '+'))))
         return true;
-    if (buffer->prec == (ull_t)(-1))
+    if (buffer->prec == (ull_t)-1)
         buffer->prec = 6;
     ice_ftoa(nb, str, (int)buffer->prec);
     return add_signed_width(buffer, str);

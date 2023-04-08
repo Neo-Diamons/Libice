@@ -16,7 +16,7 @@ bool realloc_buffer(buffer_t *buffer)
     if (!new_str)
         return true;
     buffer->left = 1024;
-    for (ull_t i = 0; i < buffer->len; i++)
+    for (ssize_t i = 0; i < buffer->len; i++)
         new_str[i] = buffer->str[i];
     free(buffer->str);
     buffer->str = new_str;

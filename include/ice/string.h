@@ -15,7 +15,7 @@
  * @param str that will be analysed.
  * @return The len of the str.
  */
-ull_t ice_strlen(const char *str);
+size_t ice_strlen(const char *str);
 
 /**
  * @brief Swap two char of the str.

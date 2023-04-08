@@ -20,8 +20,8 @@
 
 typedef struct buffer_s {
     char *str;
-    ull_t left;
-    ull_t len;
+    ssize_t left;
+    ssize_t len;
     uc_t flags;
     ull_t width;
     ull_t prec;

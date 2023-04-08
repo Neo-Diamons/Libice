@@ -15,7 +15,7 @@
  * @param str that will be printed.
  * @return The len of the str.
  */
-ull_t ice_puts(const char *str);
+ssize_t ice_puts(const char *str);
 
 /**
  * @brief Print int the fd.
@@ -23,6 +23,6 @@ ull_t ice_puts(const char *str);
  * @param str that will be printed.
  * @return The len of the str.
  */
-ull_t ice_dputs(int fd, const char *str);
+ssize_t ice_dputs(int fd, const char *str);
 
 #endif /* !ICE_OUTPUT_H */

@@ -9,10 +9,10 @@
 
 void ice_strrev(char *str)
 {
-    ull_t i = 0;
-    ull_t j = ice_strlen(str) - 1;
+    ssize_t i = 0;
+    ssize_t j = (ssize_t)ice_strlen(str) - 1;
 
-    if (!str || j == (ull_t)(-1))
+    if (!str || j == -1)
         return;
     for (; i < j ; i++, j--)
         ice_strswap(str, i, j);

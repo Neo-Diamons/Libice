@@ -21,10 +21,10 @@ static bool number_add_width(buffer_t *buffer, char *str, ull_t len)
     char c = (buffer->flags & FLAG_ZERO) ? '0' : ' ';
     ull_t width_len;
 
-    width_len = buffer->prec != (ull_t)(-1) ? MAX(len, buffer->prec) : len;
+    width_len = buffer->prec != (ull_t)-1 ? MAX(len, buffer->prec) : len;
     if (!(buffer->flags & FLAG_MINUS) && add_width_len(buffer, width_len, c))
         return true;
-    if (buffer->prec != (ull_t)(-1)) {
+    if (buffer->prec != (ull_t)-1) {
         len = MAX(len, buffer->prec);
         if (add_width_len(buffer, buffer->prec - len, '0'))
             return true;

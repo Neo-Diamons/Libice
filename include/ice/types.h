@@ -8,6 +8,9 @@
 #ifndef ICE_TYPES_H
     #define ICE_TYPES_H
 
+    #include <stddef.h>
+    #include <sys/types.h>
+
 typedef long long ll_t;
 
 typedef unsigned char uc_t;

@@ -15,7 +15,7 @@
  * @param array The array to get the length of.
  * @return The length of the array.
  */
-ull_t ice_array_len(void **array);
+size_t ice_array_len(void *array);
 
 /**
  * @brief Frees an array.

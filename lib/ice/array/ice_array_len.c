@@ -7,9 +7,9 @@
 
 #include "ice/types.h"
 
-ull_t ice_array_len(void **array)
+size_t ice_array_len(void *array)
 {
-    ull_t i = 0;
+    size_t i = 0;
 
     if (!array)
         return 0;
