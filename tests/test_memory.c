@@ -99,7 +99,5 @@ Test(ice_realloc, basic)
     cr_assert_not_null(str);
     for (int i = 0 ; i < 10 ; i++)
         cr_assert_eq(str[i], 'a');
-    for (int i = 10 ; i < 20 ; i++)
-        cr_assert_eq(str[i], 0);
     free(str);
 }

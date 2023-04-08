@@ -33,6 +33,8 @@ bool adds_buffer(buffer_t *buffer, char *str);
 
 bool add_width(buffer_t *buffer, char *str);
 
+bool add_width_len(buffer_t *buffer, ull_t len, char c);
+
 bool add_signed_width(buffer_t *buffer, char *str);
 
 bool add_unsigned_width(buffer_t *buffer, char *str);

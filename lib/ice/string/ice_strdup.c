@@ -9,13 +9,13 @@
 
 #include "ice/macro.h"
 #include "ice/string.h"
-#include "ice/assert.h"
 
 char *ice_strdup(const char *str)
 {
     char *new = malloc(sizeof(char) * (ice_strlen(str) + 1));
 
-    ASSERT_RET(new && str, NULL);
+    if (!new || !str)
+        return NULL;
     ice_strcpy(new, str);
     return new;
 }

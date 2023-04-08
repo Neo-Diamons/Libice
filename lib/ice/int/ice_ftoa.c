@@ -17,7 +17,8 @@ void ice_ftoa(double nb, char *str, int precision)
     }
     ice_itoa((ll_t)nb, str + i);
     for (; str[i]; i++);
-    if (precision <= 0) return;
+    if (precision <= 0)
+        return;
     str[i++] = '.';
     nb -= (double)((ll_t)nb);
     for (; precision; precision--) {

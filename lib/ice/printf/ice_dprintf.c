@@ -8,7 +8,6 @@
 #include <malloc.h>
 #include <unistd.h>
 
-#include "ice/assert.h"
 #include "ice/printf/private.h"
 
 ull_t ice_dprintf(int fd, const char *restrict format, ...)
@@ -17,12 +16,14 @@ ull_t ice_dprintf(int fd, const char *restrict format, ...)
     buffer_t buffer = {0};
     ull_t len;
 
-    ASSERT_RET(format != NULL, (ull_t)(-1));
+    if (!format)
+        return (ull_t)(-1);
     buffer.str = malloc(sizeof(char) * 1024);
     buffer.left = 1024;
     buffer.add = add_buffer;
     va_start(args, format);
-    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));
+    if (handle_format(&buffer, format, args))
+        return (ull_t)(-1);
     va_end(args);
     len = write(fd, buffer.str, buffer.len);
     free(buffer.str);

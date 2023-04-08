@@ -9,7 +9,6 @@
 
 #include "ice/macro.h"
 #include "ice/string.h"
-#include "ice/assert.h"
 #include "ice/printf/private.h"
 
 bool ice_printf_str(buffer_t *buffer, va_list args)
@@ -22,8 +21,8 @@ bool ice_printf_str(buffer_t *buffer, va_list args)
     }
     if (buffer->prec != (ull_t)(-1))
         str = ice_strndup(str, buffer->prec);
-    ASSERT_RET(str, true);
-    ASSERT_RET(!add_width(buffer, str), true);
+    if (!str || add_width(buffer, str))
+        return true;
     if (buffer->prec != (ull_t)(-1))
         free(str);
     return false;

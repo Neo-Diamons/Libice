@@ -7,14 +7,14 @@
 
 #include <malloc.h>
 
-#include "ice/assert.h"
 #include "ice/printf/struct.h"
 
-static bool realloc_buffer(buffer_t *buffer)
+bool realloc_buffer(buffer_t *buffer)
 {
     char *new_str = malloc(sizeof(char) * (buffer->len + 1024));
 
-    ASSERT_RET(new_str, true);
+    if (!new_str)
+        return true;
     buffer->left = 1024;
     for (ull_t i = 0; i < buffer->len; i++)
         new_str[i] = buffer->str[i];
@@ -25,8 +25,8 @@ static bool realloc_buffer(buffer_t *buffer)
 
 bool add_buffer(buffer_t *buffer, char c)
 {
-    if (buffer->left == 0)
-        ASSERT_RET(realloc_buffer(buffer) == false, true);
+    if (buffer->left == 0 && realloc_buffer(buffer))
+        return true;
     buffer->str[buffer->len] = c;
     buffer->len++;
     buffer->left--;
@@ -36,7 +36,8 @@ bool add_buffer(buffer_t *buffer, char c)
 bool adds_buffer(buffer_t *buffer, char *str)
 {
     for (ull_t i = 0; str[i]; i++)
-        ASSERT_RET(!buffer->add(buffer, str[i]), true);
+        if (buffer->add(buffer, str[i]))
+            return true;
     return false;
 }
 

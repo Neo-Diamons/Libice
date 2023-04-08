@@ -5,13 +5,14 @@
 ** ice_array_len.c
 */
 
-#include "ice/assert.h"
+#include "ice/types.h"
 
 ull_t ice_array_len(void **array)
 {
     ull_t i = 0;
 
-    ASSERT_RET(array, 0);
+    if (!array)
+        return 0;
     for (; ((char **)array)[i]; i++);
     return i;
 }

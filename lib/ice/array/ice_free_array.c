@@ -7,11 +7,12 @@
 
 #include <stdlib.h>
 
-#include "ice/assert.h"
+#include "ice/types.h"
 
 void ice_free_array(void **array)
 {
-    ASSERT_VOID(array);
+    if (!array)
+        return;
     for (ull_t i = 0; array[i]; i++)
         free(array[i]);
     free(array);
