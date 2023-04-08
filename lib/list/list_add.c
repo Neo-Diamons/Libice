@@ -28,10 +28,10 @@ bool list_add(list_t *list, void *value)
     list_node_t *node = malloc(sizeof(list_node_t));
 
     if ((list == NULL) || (value == NULL) || (node == NULL))
-        return true;
+        return false;
     node->value = value;
     node->next = NULL;
     node->prev = NULL;
     add_node(list, node);
-    return false;
+    return true;
 }

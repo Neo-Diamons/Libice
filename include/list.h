@@ -36,7 +36,7 @@ void list_destroy_node(list_t *list, void(*destroy_node)(void *));
  * @brief Add a value at the end of list
  * @param list The list
  * @param value The value to add
- * @return bool True if error
+ * @return bool False if error
  * @note The value must be freed by the user
  */
 bool list_add(list_t *list, void *value);
@@ -45,7 +45,7 @@ bool list_add(list_t *list, void *value);
  * @brief Add a node at the end of list
  * @param list The list
  * @param node The node to add
- * @return bool True if error
+ * @return bool False if error
  * @note The node must be freed by the user
 */
 bool list_add_node(list_t *list, list_node_t *node);

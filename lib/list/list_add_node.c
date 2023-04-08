@@ -12,15 +12,15 @@
 bool list_add_node(list_t *list, list_node_t *node)
 {
     if (list == NULL || node == NULL)
-        return true;
+        return false;
     list->size++;
     if (list->tail == NULL) {
         list->head = node;
         list->tail = node;
-        return false;
+        return true;
     }
     list->tail->next = node;
     node->prev = list->tail;
     list->tail = node;
-    return false;
+    return true;
 }

@@ -20,7 +20,7 @@ Test(list_add, add_list) {
     cr_assert_neq(list, NULL, "list_create() returned NULL");
 
     bool r = list_add(list, "Hello");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     cr_assert_eq(list->head, list->tail, "list->head is not list->tail");
     cr_assert_str_eq(list->head->value, "Hello", "list->head->value is not Hello");
@@ -37,10 +37,10 @@ Test(list_add, add_list_two_elements) {
     cr_assert_neq(list, NULL, "list_create() returned NULL");
 
     r = list_add(list, "Hello");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     r = list_add(list, "World!");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     cr_assert_neq(list->head, list->tail, "list->head is not list->tail");
     cr_assert_str_eq(list->head->value, "Hello", "list->head->value is not Hello");
@@ -58,7 +58,7 @@ Test(list_add, add_list_to_uninitialized_list) {
     list_t *list = NULL;
 
     bool r = list_add(list, "Hello");
-    cr_assert_eq(r, true, "list_add() returned false");
+    cr_assert_eq(r, false, "list_add() returned false");
 }
 
 Test(list_destroy_node, destroy_list_and_node) {
@@ -75,10 +75,10 @@ Test(list_destroy_node, destroy_list_and_node) {
     ice_strcpy(str2, "World!");
 
     r = list_add(list, str1);
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     r = list_add(list, str2);
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     list_destroy_node(list, free);
 }
@@ -90,10 +90,10 @@ Test(list_get, get_node) {
     cr_assert_neq(list, NULL, "list_create() returned NULL");
 
     r = list_add(list, "Hello");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     r = list_add(list, "World!");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     element = list_get(list, 1);
 
@@ -109,10 +109,10 @@ Test(list_get, get_node_overflow_index) {
     cr_assert_neq(list, NULL, "list_create() returned NULL");
 
     r = list_add(list, "Hello");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     r = list_add(list, "World!");
-    cr_assert_eq(r, false, "list_add() returned true");
+    cr_assert_eq(r, true, "list_add() returned true");
 
     element = list_get(list, 3);
     cr_assert_eq(element, NULL, "element is not NULL");
