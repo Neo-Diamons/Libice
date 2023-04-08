@@ -120,11 +120,13 @@ SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				test_list.c			\
 				)
 
-ROOT_OBJ	:=	./.obj/
+DIR_BUILD	:=	../build/
+
+ROOT_OBJ	:=	$(addprefix $(DIR_BUILD), ./obj/)
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
-TEST_DIR	:=	./../tests/.bin/
+TEST_DIR	:=	$(addprefix $(DIR_BUILD), ./tests/)
 UNIT_TEST	:=	./unit_test
 
 RM			:=	rm -rf
@@ -161,20 +163,15 @@ tests_run:			$(UNIT_TEST)
 	@./$(TEST_DIR)$(UNIT_TEST)
 	gcovr $(TEST_DIR) --exclude tests/
 
-tests_clean:
-	@[ -d $(TEST_DIR) ]\
-	&& $(RM) $(TEST_DIR)\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" $(TEST_DIR) || true
-
 debug:				CFLAGS += -g
 debug:				re
 
 clean:
-	@[ -d $(ROOT_OBJ) ]\
-	&& $(RM) $(ROOT_OBJ)\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" $(ROOT_OBJ) || true
+	@[ -d $(DIR_BUILD) ]\
+	&& $(RM) $(DIR_BUILD)\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" $(DIR_BUILD) || true
 
-fclean:				clean tests_clean
+fclean:				clean
 	@[ -f $(NAME) ]\
  	&& $(RM) $(NAME)\
  	&& printf "\033[31m[DELETED]\033[0m %s\n" $(NAME) || true
